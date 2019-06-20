@@ -35,7 +35,6 @@ services:
 
   mongo:
     image: mongo:3.4-jessie
-<<<<<<< HEAD
     ports:
       - 27017:27017
     expose:
@@ -78,7 +77,6 @@ services:
     container_name: mysql
     network_mode: host
     hostname: localhost
-=======
     ports:
       - 27017:27017
     expose:
@@ -97,4 +95,3 @@ services:
       - eurekaserver
       - configserver
       - apigateway
->>>>>>> dc1ddcf542e6c61516af8affcc5ddb89d588a113
