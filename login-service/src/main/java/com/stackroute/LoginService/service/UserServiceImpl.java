@@ -25,7 +25,6 @@ public class UserServiceImpl implements UserService{
          throw new Exception("user already exist");
         }
             return userRepository.save(user);
-
     }
 
     @Override
@@ -34,7 +33,9 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+
     public User findByUserIdAndPassword(String name, String password) {
         return userRepository.findByNameAndPassword(name, password);
+
     }
 }

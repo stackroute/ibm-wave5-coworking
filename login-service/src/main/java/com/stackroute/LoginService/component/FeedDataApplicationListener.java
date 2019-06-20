@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 public class FeedDataApplicationListener implements ApplicationListener<ContextRefreshedEvent> {
 
 
+
+
     private UserRepository userRepository;
 
     @Autowired
@@ -22,7 +24,9 @@ public class FeedDataApplicationListener implements ApplicationListener<ContextR
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent)
     {
+
      userRepository.save(new User(0,"admin12345", "123", "admin"));
+
     }
 
 }
