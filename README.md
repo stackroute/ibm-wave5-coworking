@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/stackroute/ibm-wave5-coworking.svg?branch=v1.0.0)](https://travis-ci.org/stackroute/ibm-wave5-coworking)
-[![codecov](https://codecov.io/gh/stackroute/ibm-wave5-coworking/branch/master/graph/badge.svg)](https://codecov.io/gh/stackroute/ibm-wave5-coworking)
-![](https://img.shields.io/codecov/c/github/stackroute/ibm-wave5-coworking/master.svg?style=flat)
+[![codecov](https://codecov.io/gh/stackroute/ibm-wave5-coworking/branch/v1.0.0/graph/badge.svg)](https://codecov.io/gh/stackroute/ibm-wave5-coworking)
+![](https://img.shields.io/codecov/c/github/stackroute/ibm-wave5-coworking/v1.0.0.svg?style=flat)
 
 ![](https://img.shields.io/github/issues/stackroute/ibm-wave5-coworking.svg?style=popout)
 
