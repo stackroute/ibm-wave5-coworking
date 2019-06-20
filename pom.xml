@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.stackroute</groupId>
-	<artifactId>your-product-name</artifactId>
+	<artifactId>ibm-wave5-coworking</artifactId>
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
 
@@ -28,7 +28,9 @@
 	<modules>
 		<module>config-server</module>
 		<module>eureka-server</module>
-		<module>zuul-api</module>
+		<module>zuul-gatewayservice</module>
+<module>login-service</module>
+<module>user-service</module>
 	</modules>
 
 	<dependencies>
