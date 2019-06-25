@@ -1,14 +1,10 @@
 package com.stackroute.userservice.service;
-
-import com.stackroute.userservice.domain.User;
+import com.stackroute.kafka.domain.User;
 import com.stackroute.userservice.exception.UserAlreadyExists;
 import com.stackroute.userservice.exception.UserNotFoundException;
 import com.stackroute.userservice.repository.UserRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
-
-//import static javax.swing.text.html.parser.DTDConstants.ID;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -33,16 +29,7 @@ public class UserServiceImpl implements UserService {
         return savedUser;
     }
 
-//    @Override
-//    public boolean deleteUser(String emailId) throws UserNotFoundException {
-//
-//        boolean status = false;
-//        if (userRepository.existsById(emailId)) {
-//            userRepository.deleteByEmailId(emailId);
-//            status = true;
-//
-//            return status;
-//        }
+
 
 
     @Override
@@ -54,9 +41,7 @@ public class UserServiceImpl implements UserService {
             throw new Exception("Exception in deleteTrack");
         }
 
-//        else{
-//              throw new UserNotFoundException("user emailId not exists");
-//            }
+
 
     }
     @Override
