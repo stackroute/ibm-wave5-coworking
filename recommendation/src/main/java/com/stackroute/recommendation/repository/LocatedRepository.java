@@ -29,5 +29,16 @@ public interface LocatedRepository extends Neo4jRepository<Space,Long> {
     @Query( "MATCH (Space)-[r:Located]->(Location) DELETE r;")
     public Space deleteRelationship();
 
+    @Query("MATCH (User {name:'abc'})-[b:Booked]->(c:Category)-[:Contains]-(m:Space)-[:Located]->(n:Location) WITH distinct n as n MATCH (s:Space)-[:Located]-(n) RETURN s")
+    public Collection<Space> createRecommendation();
+
+//    @Query("MATCH (User {name:'abc'})-[b:Booked]->(c:Category)-[:Contains]-(m:Space)-[:Located]->(n:Location) WITH distinct n as n MATCH (User {name:'abc'})-[b:Booked]->(c:Category)-[:Contains]-(m:Space)-[:Located]->(n:Location) WITH distinct c as c MATCH (s:Space)-[:Contains]->(c)  RETURN s")
+//    public Collection<Space> createRecommendation();
+
+
+//    MATCH (User {name:"abc"})-[b:Booked]->(c:Category)-[:Contains]-(m:Space)-[:Located]->(n:Location)
+//    WITH distinct n as n
+//    MATCH (s:Space)-[:Located]-(n) RETURN s
+
 
 }

@@ -43,4 +43,9 @@ public class LocatedServiceImpl implements LocatedService {
     public Space deleteRelationship() {
         return locatedRepository.deleteRelationship();
     }
+
+    @Override
+    public Collection<Space> createRecommendation() {
+        return locatedRepository.createRecommendation();
+    }
 }

@@ -1,6 +1,5 @@
 package com.stackroute.recommendation.service;
 
-import com.stackroute.recommendation.domain.Address;
 import com.stackroute.recommendation.domain.Space;
 import com.stackroute.recommendation.repository.SpaceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +28,8 @@ public class SpaceServiceImpl implements SpaceService {
     }
 
     @Override
-    public Space create(long spaceId, String spaceName, Address address) {
-        return spaceRepository.createNode(spaceId,spaceName,address);
+    public Space create(long spaceId, String spaceName) {
+        return spaceRepository.createNode(spaceId,spaceName);
     }
 
     @Override

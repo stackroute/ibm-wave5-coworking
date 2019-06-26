@@ -17,7 +17,6 @@ public class Space {
     @Property
     private String spaceName;
    // private String location;
-    private Address address;
 
 
     @Relationship(type = "Contains",direction = Relationship.INCOMING)
@@ -26,23 +25,22 @@ public class Space {
     @Relationship(type = "Located",direction = Relationship.INCOMING)
     private List<Location> locations;
 
-    public List<Category> getCategory() {
-        return category;
-    }
-
-    public List<Location> getLocations() {
-        return locations;
-    }
+//    public List<Category> getCategory() {
+//        return category;
+//    }
+//
+//    public List<Location> getLocations() {
+//        return locations;
+//    }
 
     public Space() {
     }
 
-    public Space(long spaceId, String spaceName,List<Category> category, List<Location> locations,Address address) {
+    public Space(long spaceId, String spaceName) {
         this.spaceId = spaceId;
         this.spaceName = spaceName;
-        this.category = category;
-        this.locations = locations;
-        this.address=address;
+//        this.category = category;
+//        this.locations = locations;
     }
 
     public long getSpaceId() {
@@ -57,7 +55,4 @@ public class Space {
    //     return location;
     //}
 
-    public Address getAddress() {
-        return address;
-    }
 }

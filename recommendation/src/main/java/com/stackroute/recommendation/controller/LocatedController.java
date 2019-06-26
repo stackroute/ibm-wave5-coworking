@@ -51,4 +51,11 @@ public class LocatedController {
         return space1;
     }
 
+    //To get recommondation
+    @GetMapping("/recommendation")
+    public Collection<Space> recommendation() {
+        return locatedService.createRecommendation();
+    }
+
+
 }

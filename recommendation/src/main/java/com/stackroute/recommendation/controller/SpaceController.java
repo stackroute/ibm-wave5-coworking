@@ -34,7 +34,7 @@ public class SpaceController {
     // To create new user
     @PostMapping("/newSpace")
     public Space save(@RequestBody Space space) {
-        Space space1 = spaceService.create(space.getSpaceId(),space.getSpaceName(),space.getAddress());
+        Space space1 = spaceService.create(space.getSpaceId(),space.getSpaceName());
         return space1;
     }
 
