@@ -44,18 +44,18 @@ services:
 
 
   zookeeper:
-       container_name: zookeeper
-       image: wurstmeister/zookeeper:latest
+    container_name: zookeeper
+    image: wurstmeister/zookeeper:latest
      # restart: always
-       ports:
-         - 2181:2181
-       expose:
-         - 2181
-       network_mode: "host"
-       hostname: localhost
-       environment:
-         ZOOKEEPER_CLIENT_PORT: 2181
-         ZOOKEEPER_TICK_TIME: 2000000000
+    ports:
+      - 2181:2181
+    expose:
+      - 2181
+    network_mode: "host"
+    hostname: localhost
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000000000
 
   kafka:
        container_name: kafka
@@ -76,21 +76,16 @@ services:
          KAFKA_MESSAGE_MAX_BYTES: 1000000000
 
   mysql:
-    image: mysql:5.7
-    ports:
-      - 3306:3306
-    environment:
-      - MYSQL_ROOT_PASSWORD=Root@123
-      - MYSQL_DATABASE=user
-    container_name: mysql
-    network_mode: host
-    hostname: localhost
-    ports:
-      - 27017:27017
-    expose:
-      - 27017
-    container_name: mysql
-    network_mode: host
+      image: mysql:5.7
+      ports:
+        - 3306:3306
+      environment:
+        - MYSQL_ROOT_PASSWORD=Root@123
+        - MYSQL_DATABASE=user
+      container_name: mysql
+      network_mode: host
+      hostname: localhost
+
 
 
   user-service:
