@@ -24,7 +24,7 @@ services:
     - 8001
 
   configserver:
-      image: config-service:latest
+      image: config-server:latest
       build: config-server/
       restart: always
       network_mode: host
