@@ -7,6 +7,7 @@ import com.stackroute.recommendation.repository.LocatedRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 @Service
@@ -45,7 +46,18 @@ public class LocatedServiceImpl implements LocatedService {
     }
 
     @Override
-    public Collection<Space> createRecommendation() {
-        return locatedRepository.createRecommendation();
+    public Collection<Space> createRecommendationLoc() {
+//        ArrayList<String> list=locatedRepository.getCategoryName();
+//        System.out.println(list);
+//        ArrayList<String> list1=locatedRepository.getAllCategoryName();
+//        for(int i=0;i<list.size();i++) {
+//            for (int j = 0; j < list1.size(); j++) {
+//                if (list1.get(i)==list.get(j)) {
+//                    System.out.println(list1.get(i));
+                    return locatedRepository.createRecommendationloc();
+//                }
+//            }
+//        }
+//        return null;
     }
 }

@@ -17,9 +17,7 @@ public class Category {
     @Property
     private String categoryName;
     private double price;
-    private Space space;
-    String spaceName;
-   // private Address address;
+    String space;
 
     public Category() {
     }
@@ -27,17 +25,11 @@ public class Category {
     @Relationship(type = "Located",direction = Relationship.INCOMING)
     private List<Location> locations;
 
-    public List<Location> getLocations() {
-        return locations;
-    }
-
-    public Category(long categoryId, String categoryName, double price) {
+    public Category(long categoryId, String categoryName, double price,String space) {
         this.categoryId = categoryId;
         this.categoryName = categoryName;
         this.price = price;
-       // this.space = space;
-        this.spaceName=space.getSpaceName();
-        //this.address = address;
+        this.space=space;
     }
 
     public long getCategoryId() {
@@ -52,16 +44,7 @@ public class Category {
         return price;
     }
 
-    public Space getSpace() {
-        return space;
-    }
-
-//    public Address getAddress() {
-//        return address;
-//    }
-
-
     public String getSpaceName() {
-        return spaceName;
+        return space;
     }
 }

@@ -25,7 +25,7 @@ public interface CategoryRepository extends Neo4jRepository<Category,Long> {
     @Query("MATCH (n:Category) DETACH DELETE n")
     public Category deleteAllNodes();
 
-    @Query("MATCH (c:Category) WHERE c.categoryId={categoryId} SET c.categoryName={categoryName} c.price={price}")
+    @Query("MATCH (n:Category) WHERE n.categoryId={categoryId} SET n.price={price} RETURN n")
     public Category updateNode(long categoryId,String categoryName,double price);
 
 }

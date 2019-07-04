@@ -1,7 +1,9 @@
 package com.stackroute.recommendation.controller;
 
 
+import com.stackroute.recommendation.domain.Category;
 import com.stackroute.recommendation.domain.Space;
+import com.stackroute.recommendation.service.CategoryService;
 import com.stackroute.recommendation.service.SpaceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +21,9 @@ public class SpaceController {
         this.spaceService = spaceService;
     }
 
+    @Autowired
+    public CategoryService categoryService;
+
     @GetMapping("/{spaceName}")
     public Space findByName(@PathVariable String spaceName) {
         return spaceService.findByName(spaceName);
@@ -27,6 +32,7 @@ public class SpaceController {
     //To get all users
     @GetMapping("/allSpace")
     public Collection<Space> getAll() {
+       // Collection<Category> category1=spaceService.getAllCategory();
         return spaceService.getAll();
     }
 
@@ -34,7 +40,11 @@ public class SpaceController {
     // To create new user
     @PostMapping("/newSpace")
     public Space save(@RequestBody Space space) {
-        Space space1 = spaceService.create(space.getSpaceId(),space.getSpaceName());
+        Collection<Category> category1=categoryService.getAll();
+        //space.setCategory(spaceService.getAllCategory());
+        Collection<String> categories=spaceService.getAllCategory();
+       // space.setCategory(categories);
+        Space space1 = spaceService.create(space.getSpaceId(),space.getSpaceName(),categories);
         return space1;
     }
 

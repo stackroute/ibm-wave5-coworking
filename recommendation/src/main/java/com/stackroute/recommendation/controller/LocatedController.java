@@ -52,9 +52,9 @@ public class LocatedController {
     }
 
     //To get recommondation
-    @GetMapping("/recommendation")
-    public Collection<Space> recommendation() {
-        return locatedService.createRecommendation();
+    @GetMapping("/recommendationLoc")
+    public Collection<Space> recommendationLoc() {
+        return locatedService.createRecommendationLoc();
     }
 
 

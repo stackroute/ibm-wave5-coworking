@@ -45,4 +45,9 @@ public class ContainsController {
         return space1;
     }
 
-}
+    @GetMapping("/priceRecommendation")
+        public Collection<Space> recommondtionPrice() {
+            return containsService.recommendationprice();
+        }
+    }
+

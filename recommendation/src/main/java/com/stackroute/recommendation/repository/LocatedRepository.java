@@ -5,6 +5,7 @@ import com.stackroute.recommendation.domain.Space;
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 public interface LocatedRepository extends Neo4jRepository<Space,Long> {
@@ -29,8 +30,14 @@ public interface LocatedRepository extends Neo4jRepository<Space,Long> {
     @Query( "MATCH (Space)-[r:Located]->(Location) DELETE r;")
     public Space deleteRelationship();
 
-    @Query("MATCH (User {name:'abc'})-[b:Booked]->(c:Category)-[:Contains]-(m:Space)-[:Located]->(n:Location)<-[:Located]-(s:Space)  RETURN s")
-    public Collection<Space> createRecommendation();
+    @Query("MATCH (User)-[b:Booked]->(c:Category)<-[:Contains]-(m:Space) RETURN c.categoryName")
+    public ArrayList<String> getCategoryName();
+
+    @Query("MATCH (c:Category)<-[:Contains]-(m:Space) RETURN c.categoryName")
+    public ArrayList<String> getAllCategoryName();
+
+    @Query("MATCH (User)-[b:Booked]->(c:Category)-[:Contains]-(m:Space)-[:Located]->(n:Location) WITH distinct c as c MATCH (n:Location)<-[:Located]-(s:Space)-[contains]-(l:Category) WHERE c.categoryName=l.categoryName and s.spaceName<>c.space RETURN s,l")
+    public Collection<Space> createRecommendationloc();
 
 //    @Query("MATCH (User {name:'abc'})-[b:Booked]->(c:Category)-[:Contains]-(m:Space)-[:Located]->(n:Location) WITH distinct n as n MATCH (s:Space)-[:Located]-(n) RETURN s")
 //    public Collection<Space> createRecommendation();
