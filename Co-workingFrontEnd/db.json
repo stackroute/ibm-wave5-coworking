@@ -1,0 +1,81 @@
+{
+    "hotdesk": [{
+            "SpaceId": 1001,
+            "SpaceName": "Innov8",
+            "location": "Kormangala"
+
+        },
+        {
+            "SpaceId": 1004,
+            "SpaceName": "91Spring Board",
+            "location": "Madiwala"
+        },
+        {
+            "SpaceId": 2901,
+            "SpaceName": "Sneed",
+            "location": "Whitefield"
+        }
+    ],
+    "dedicateddesk": [{
+            "SpaceId": 1001,
+            "SpaceName": "Innov8",
+            "location": "Kormangala"
+        },
+        {
+            "SpaceId": 1001,
+            "SpaceName": "Innov8",
+            "location": "Kormangala"
+        },
+        {
+            "SpaceId": 1001,
+            "SpaceName": "Innov8",
+            "location": "Kormangala"
+        }
+    ],
+    "meetingroom": [{
+            "SpaceId": 1001,
+            "SpaceName": "Innov8",
+            "location": "Kormangala"
+        },
+        {
+            "SpaceId": 1001,
+            "SpaceName": "Innov8",
+            "location": "Kormangala"
+        },
+        {
+            "SpaceId": 1001,
+            "SpaceName": "Innov8",
+            "location": "Kormangala"
+        }
+    ],
+
+    
+    "eventspace": [{
+        "SpaceId": 1001,
+        "SpaceName": "Innov8",
+        "location": "Kormangala"
+    }],
+
+
+    "trainingroom": [{
+            "SpaceId": 1001,
+            "SpaceName": "Innov8",
+            "location": "Kormangala"
+        },
+        {
+            "SpaceId": 1004,
+            "SpaceName": "91Spring Board",
+            "location": "Madiwala"
+        },
+        {
+            "SpaceId": 2901,
+            "SpaceName": "Sneed",
+            "location": "Whitefield"
+        },
+        {
+            "SpaceId": 101,
+            "SpaceName": "Innov8",
+            "location": "Kormangala"
+        }
+    ]
+}

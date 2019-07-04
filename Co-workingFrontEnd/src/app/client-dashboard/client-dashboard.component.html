@@ -5,11 +5,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-
+<app-navbar> </app-navbar>
 <body>
-    
-        <div class="card">
-                <div class="image-container">
+
+    <div class="card">
+        <div class="image-container">
             <h1>My Profile</h1><br>
             <h5>Infomation</h5>
             <div class="row">
@@ -21,17 +21,19 @@
                         <a href="" routerLink='/edit' routerLinkActive="active">Edit</a>
                     </div>
                 </div>
-                <div class="col-md-9">
-                    <div class="iconuser">
-                        <i class="fas fa-user"> </i>
+                <div class="cards" *ngFor="let data of ArrayOfClientData"></div>
+                    <div class="col-md-9">
+                        <div class="iconuser">
+                            <i class="fas fa-user"> {{ArrayOfClientData[0].name}} </i>
+                        </div>
+                        <div class="iconphone">
+                            <i class="fa fa-phone"> {{ArrayOfClientData[0].contact}}</i>
+                        </div>
+                        <div class="iconmail">
+                            <i class="fa fa-envelope"> {{ArrayOfClientData[0].email}}</i>
+                        </div>
                     </div>
-                    <div class="iconphone">
-                        <i class="fa fa-phone"></i>
-                    </div>
-                    <div class="iconmail">
-                        <i class="fa fa-envelope"></i>
-                    </div>
-                </div>
+                
                 <div class="property">
                     <h2>Booked Properties:</h2>
                 </div>
@@ -40,3 +42,4 @@
         </div>
     </div>
 </body>
+<app-footer></app-footer>

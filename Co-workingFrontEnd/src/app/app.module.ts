@@ -23,7 +23,10 @@ import { InformationUpdateComponent } from './information-update/information-upd
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatCardModule, MatButtonToggleModule, MatStepperModule, MatInputModule, MatButtonModule } from '@angular/material';
 import { AboutUsComponent } from './about-us/about-us.component';
-
+import { CardComponent } from './card/card.component';
+import {HttpClientModule} from '@angular/common/http'
+import { CardService } from './card.service';
+import { BookingComponent } from './booking/booking.component';
 
 
 @NgModule({
@@ -43,6 +46,8 @@ import { AboutUsComponent } from './about-us/about-us.component';
     AddPropertiesComponent,
     InformationUpdateComponent,
     AboutUsComponent,
+    CardComponent,
+    BookingComponent,
     
 
   ],
@@ -62,9 +67,10 @@ import { AboutUsComponent } from './about-us/about-us.component';
     MatButtonModule,
     MatFormFieldModule,
     MatDialogModule,
+    HttpClientModule
     
   ],
-  providers: [],
+  providers: [CardService],
   bootstrap: [AppComponent],
   entryComponents:[LocationComponent]
 })

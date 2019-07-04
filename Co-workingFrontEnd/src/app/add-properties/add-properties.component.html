@@ -1,135 +1,137 @@
-
-<!-- <div style="text-align:center"> -->
+<div style="text-align:center">
 
 <mat-horizontal-stepper linear>
-    <mat-step [stepControl]="firstFormGroup">
-        <form [formGroup]="firstFormGroup">
+        <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="firstFormGroup">
+                <div class="bgimage">
+                    <ng-template matStepLabel> <strong>Space Details:</strong></ng-template>
+                    <mat-form-field>
+                        <input matInput placeholder="Space Id" [(ngModel)]="spaceId" formControlName="IdCtrl" required>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                        <input matInput placeholder="Space Name" [(ngModel)]="spaceName" formControlName="NameCtrl" required>
+    
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                        <mat-label>Select your categoty (required)</mat-label>
+                        <select matNativeControl formControlName="CategoryCtrl" required>
+                              <option label="--select something --"></option>
+                              <option value="Meeting Room">Meeting Room</option>
+                              <option value="Dedicated Desk">Dedicated desk</option>
+                              <option value="Event Space">Event Space</option>
+                              <option value="Training Room">Training Room</option>
+                              <option value="Private Cabin">Private Cabin</option>
+                              <option value="Hot Desk">Hot Desk</option>
+                            </select>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                        <input matInput type="number" placeholder="Price" [(ngModel)]="price" formControlName="PriceCtrl" required>
+                    </mat-form-field>
+                    <br><br>
+                    <button type="button" mat-raised-button (click)="fileInput.click()">Upload Image</button>
+                    <input hidden (change)="onFileSelected()" #fileInput type="file" id="file">
+                    <div class="next">
+                        <button mat-raised-button matStepperNext color="primary">Next</button><br><br>
+                    </div>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+            <form [formGroup]="secondFormGroup">
+                <div class="bgimage">
+                    <ng-template matStepLabel> <strong>Space address details</strong> </ng-template>
+                    <mat-form-field>
+                        <input matInput placeholder="Building Number" formControlName="NumberCtrl" required>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                        <input matInput placeholder="Area" formControlName="AreaCtrl" required>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                        <input matInput placeholder="City" formControlName="CityCtrl" required>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                        <input matInput placeholder="State" formControlName="StateCtrl" required>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Country" formControlName="CountryCtrl" required>
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                        <input matInput type="number" placeholder="Pin code" formControlName="PincodeCtrl" required>
+                    </mat-form-field>
+                    <div>
+                        <button mat-raised-button matStepperPrevious color="primary">Back</button>
+                        <button mat-raised-button matStepperNext color="primary">Next</button><br><br>
+                    </div>
+                </div>
+            </form>
+        </mat-step>
+        <mat-step>
             <div class="bgimage">
-                <ng-template matStepLabel><strong> Space Details:</strong></ng-template>
-                <mat-form-field>
-                    <input matInput placeholder="Space Id" [(ngModel)]="spaceId" formControlName="firstCtrl" required>
-                </mat-form-field>
-                <br>
-
-                <mat-form-field>
-                    <input matInput placeholder="Space Name" [(ngModel)]="spaceName" formControlName="firstCtrl" required>
-                </mat-form-field>
-                <br>
-                <mat-form-field>
-                    <mat-label>Category</mat-label>
-                    <select matNativeControl required>
-                       <input [(ngModel)]="category">
-                  <option value="Select">Select</option>
-                  <option value="Meeting Room">Meeting Room</option>
-                  <option value="Dedicated Desk">Dedicated desk</option>
-                  <option value="Event Space">Event Space</option>
-                  <option value="Training Room">Training Room</option>
-                  <option value="Private Cabin">Private Cabin</option>
-                  <option value="Hot Desk">Hot Desk</option>
-             </select>
-                </mat-form-field>
-                <br>
-                <mat-form-field>
-                    <input matInput placeholder="Price" [(ngModel)]="price" formControlName="firstCtrl" required>
-                </mat-form-field>
-
-                <br>
-
-                <div class="next">
-                    <button mat-raised-button matStepperNext color="primary">Next</button>
+                <ng-template matStepLabel><strong>Amenities</strong></ng-template>
+                <div class="amenity-item col-sm-2 col-xs-4">
+                    <mat-button-toggle-group class="card" #toggleGroup="matButtonToggleGroup" multiple>
+                        <mat-button-toggle class="inside" value="Air-Conditioner">
+                            <img src="https://img.icons8.com/wired/94/000000/air-conditioner.png" width=100 height=100>
+                            <!-- <mat-icon>signal_wifi_4_bar_lock</mat-icon><br>Secured Network -->
+                        </mat-button-toggle>
+                        <mat-button-toggle class="inside" value="Parking">
+                            <img src="https://img.icons8.com/ios/94/000000/valet-parking.png" width=100 height=100>
+                        </mat-button-toggle>
+                        <mat-button-toggle class="inside" value="Event Area">
+                            <!-- <mat-icon>restaurant</mat-icon><br>Cafeteria -->
+                            <img src="https://img.icons8.com/ios/94/000000/audience.png" width=100 height=100>
+                        </mat-button-toggle>
+                        <mat-button-toggle class="inside" value="Tea/Coffee">
+                            <img src="https://img.icons8.com/wired/94/000000/tea.png" width=100 height=100>
+                        </mat-button-toggle>
+                        <mat-button-toggle class="inside" value="Wellness Room">
+                            <img src="https://img.icons8.com/ios/94/000000/waiting-room.png" width=100 height100>
+                        </mat-button-toggle>
+                        <mat-button-toggle class="inside" value="IP Support and Maintainance">
+                            <img src="https://img.icons8.com/carbon-copy/100/000000/support.png" width=40 height=40><img src="https://img.icons8.com/wired/94/000000/service.png" width=100 height=100>
+                        </mat-button-toggle>
+                        <mat-button-toggle class="inside" value="IP phones">
+                            <img src="https://img.icons8.com/wired/94/000000/voip-gateway.png" width=100 height=100>
+                        </mat-button-toggle>
+                        <mat-button-toggle class="inside" value="Cafetaria">
+                            <img src="https://img.icons8.com/ios/94/000000/dining-room.png" width=100 height=100>
+                        </mat-button-toggle>
+                        <mat-button-toggle class="inside" value="Repographic Facility">
+                            <img src="https://img.icons8.com/wired/94/000000/print.png" width=100 height=100>
+                        </mat-button-toggle>
+                        <mat-button-toggle class="inside" value="Secured Network">
+                            <img src="https://img.icons8.com/ios/94/000000/keyhole-shield.png" width=40 height=40><img src="https://img.icons8.com/ios/94/000000/network.png" width=100 height=100>
+                        </mat-button-toggle>
+                    </mat-button-toggle-group>
+                    {{toggleGroup.value}}
+                </div>
+                <div class="amenity">
+                    <button mat-raised-button matStepperPrevious color="primary">Back</button>
+                    <!-- <button mat-raised-button color="primary" (click)="stepper.reset()">Reset</button> -->
+                    <button mat-raised-button matStepperNext color="primary">Submit</button><br><br>
                 </div>
             </div>
-        </form>
-    </mat-step>
-    <mat-step [stepControl]="secondFormGroup">
-        <form [formGroup]="secondFormGroup">
-            <ng-template matStepLabel> <strong>Space address details</strong> </ng-template>
-            <mat-form-field>
-                <input matInput placeholder="Building Number" formControlName="secondCtrl" required>
-            </mat-form-field>
-            <br>
-            <mat-form-field>
-                <input matInput placeholder="Area" formControlName="secondCtrl" required>
-            </mat-form-field>
-            <br>
-            <mat-form-field>
-                <input matInput placeholder="City" formControlName="secondCtrl" required>
-            </mat-form-field>
-            <br>
-            <mat-form-field>
-                <input matInput placeholder="State" formControlName="secondCtrl" required>
-            </mat-form-field>
-            <br>
-            <mat-form-field>
-                <input matInput placeholder="Country" formControlName="secondCtrl" required>
-            </mat-form-field>
-            <br>
-            <mat-form-field>
-                <input matInput placeholder="Pin code" formControlName="secondCtrl" required>
-            </mat-form-field>
-            <div>
-                <button mat-raised-button matStepperPrevious color="primary">Back</button>
-                <button mat-raised-button matStepperNext color="primary">Next</button>
+        </mat-step>
+        <mat-step>
+            <div class="Done">
+                <ng-template matStepLabel>
+                    <strong>Done!</strong>
+                </ng-template>
+                <img src="https://img.icons8.com/color/96/000000/ok.png" width=100 height=100>
+    
+                <h1>
+                    Thank you!!!
+                </h1>
+                <h3>Your space details has been successfully added!!! We will get back to you soon...</h3>
             </div>
-        </form>
-    </mat-step>
-    <mat-step>
-        <ng-template matStepLabel><strong> Amenities</strong></ng-template>
-        <div class="amenity-item col-sm-2 col-xs-4">
-            <mat-button-toggle-group class="card" #toggleGroup="matButtonToggleGroup" multiple>
-                <mat-button-toggle class="inside" value="Air-Conditioner">
-                    <img src="https://img.icons8.com/wired/94/000000/air-conditioner.png" width=100 height=100>
-                    <!-- <mat-icon>signal_wifi_4_bar_lock</mat-icon><br>Secured Network -->
-                </mat-button-toggle>
-                <mat-button-toggle class="inside" value="Parking">
-                    <img src="https://img.icons8.com/ios/94/000000/valet-parking.png" width=100 height=100>
-                </mat-button-toggle>
-                <mat-button-toggle class="inside" value="Event Area">
-                    <!-- <mat-icon>restaurant</mat-icon><br>Cafeteria -->
-                    <img src="https://img.icons8.com/ios/94/000000/audience.png" width=100 height=100>
-                </mat-button-toggle>
-                <mat-button-toggle class="inside" value="Tea/Coffee">
-                    <img src="https://img.icons8.com/wired/94/000000/tea.png" width=100 height=100>
-                </mat-button-toggle>
-                <mat-button-toggle class="inside" value="Wellness Room">
-                    <img src="https://img.icons8.com/ios/94/000000/waiting-room.png" width=100 height100>
-                </mat-button-toggle>
-                <mat-button-toggle class="inside" value="IP Support and Maintainance">
-                    <img src="https://img.icons8.com/carbon-copy/100/000000/support.png" width=40 height=40><img src="https://img.icons8.com/wired/94/000000/service.png" width=100 height=100>
-                </mat-button-toggle>
-                <mat-button-toggle class="inside" value="IP phones">
-                    <img src="https://img.icons8.com/wired/94/000000/voip-gateway.png" width=100 height=100>
-                </mat-button-toggle>
-                <mat-button-toggle class="inside" value="Cafetaria">
-                    <img src="https://img.icons8.com/ios/94/000000/dining-room.png" width=100 height=100>
-                </mat-button-toggle>
-                <mat-button-toggle class="inside" value="Repographic Facility">
-                    <img src="https://img.icons8.com/wired/94/000000/print.png" width=100 height=100>
-                </mat-button-toggle>
-                <mat-button-toggle class="inside" value="Secured Network">
-                    <img src="https://img.icons8.com/ios/94/000000/keyhole-shield.png" width=40 height=40><img src="https://img.icons8.com/ios/94/000000/network.png" width=100 height=100>
-                </mat-button-toggle>
-            </mat-button-toggle-group>
-
-            {{toggleGroup.value}}
-        </div>
-        <div class="amenity">
-            <button mat-raised-button matStepperPrevious color="primary">Back</button>
-            <!-- <button mat-raised-button color="primary" (click)="stepper.reset()">Reset</button> -->
-            <button mat-raised-button matStepperNext color="primary">Submit</button>
-        </div>
-    </mat-step>
-    <mat-step>
-        <ng-template matStepLabel>
-            <strong>Done!</strong>
-        </ng-template>
-        <img src="https://img.icons8.com/color/96/000000/ok.png" width=100 height=100>
-
-        <h1>
-            Thank you!!!
-        </h1>
-        <h3>Your space details has been successfully added!!! We will get back to you soon...</h3>
-
-    </mat-step>
-    <!-- </mat-horizontal-stepper> -->
-</mat-horizontal-stepper>
+        </mat-step>
+    </mat-horizontal-stepper>
+    </div>

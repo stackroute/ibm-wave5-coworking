@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ClientDashboardService } from '../client-dashboard.service';
 
 @Component({
   selector: 'app-client-dashboard',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientDashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private clientService:ClientDashboardService) { }
+  ArrayOfClientData : any = [];
 
-  ngOnInit() {
+
+ngOnInit() {
+      this.clientService.getClientData().subscribe(data=>
+          {
+           console.log(data);
+          //  console.log
+           this.ArrayOfClientData=data;
+        });
   }
-
 }

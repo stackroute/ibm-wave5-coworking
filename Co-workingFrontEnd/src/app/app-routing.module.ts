@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PlansComponent } from './plans/plans.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -9,6 +9,8 @@ import { OwnerDashboardComponent } from './owner-dashboard/owner-dashboard.compo
 import { InformationUpdateComponent} from './information-update/information-update.component'
 import { AddPropertiesComponent } from './add-properties/add-properties.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { CardComponent } from './card/card.component';
+import { BookingComponent } from './booking/booking.component';
 const routes: Routes = [
   {path:'',component:LandingPageComponent},
   {path:'Plans',component:PlansComponent},
@@ -19,7 +21,10 @@ const routes: Routes = [
   {path:'owner-login',component:OwnerDashboardComponent},
   // {path:'edit',component:InformationUpdateComponent},
   {path:'add-property',component:AddPropertiesComponent},
-  {path:'about',component:AboutUsComponent}
+  {path:'about',component:AboutUsComponent},
+  {path: 'card', component: CardComponent},
+  {path: 'details', component:BookingComponent}
+
 ];
 
 @NgModule({

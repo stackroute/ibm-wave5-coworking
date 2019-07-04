@@ -1,57 +1,59 @@
+
 <html>
-
 <head>
-  <meta charset="utf-8">
+   <meta charset="utf-8">
 
-  <title>HTML Starter</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-  <script src="app.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
+   <title>HTML Starter</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+ </head>
+
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <body>
-  <section class="row" id="moreinfo">
-    <div class="col-sm-6" id="col1">
-      <form role="form" class="well" ng-hide="ifSearchUser">
+
+<section class="row" id="moreinfo">
+  <div class="col-sm-6" id="col1">
+
+     <form role = "form" class="well" ng-hide="ifSearchUser">
 
 
-        <div class="input-container">
+       <div class="input-container">
           <i class="fa fa-user icon"></i>
-          <input class="input-field" type="text" placeholder="Username" name="usrnm">
+          <input class="input-field" #name type="text" placeholder="Username" name="usrnm">
         </div>
 
-        <div class="input-container">
+       <div class="input-container">
           <i class="fa fa-key icon"></i>
-          <input class="input-field" type="password" placeholder="Password" name="psw">
+          <input class="input-field" #password type="password" placeholder="Password" name="psw">
         </div>
-        <br>
-        <input type="hidden" ng-model="newcontact.id">
-        <input type="button" class="btn btn-primary" ng-click="saveContact()" class="btn btn-primary" value="Login"
-          routerLink="/client-login" routerLinkActive="active">
-        <input type="button" class="btn btn-primary" ng-click="saveContact()" class="btn btn-primary"
-          value="LoginAsOwner" routerLink="/owner-login" routerLinkActive="active">
-      </form>
-    </div>
-    <div class="col-sm-6" id="col2">
+       <br>
+       <!-- <input type="hidden" ng-model="newcontact.id"> -->
+       <input type="button" class="btn btn-primary" routerLink ='/client-login' routerLinkActive="active" (click)="authenticateUser(name.value, password.value)" class="btn btn-primary" value = "Client Login ">
+       <input type="button" class="btn btn-primary" routerLink ='/owner-login' routerLinkActive="active" (click)="authenticateUser(name.value, password.value)" class="btn btn-primary" value = "Owner Login">
+         </form>
+  </div>
+  <div class="col-sm-6" id="col2">
 
-      <h3 class="register-text"><b>Don't have an Account?</b></h3>
+     <h4><b>Don't have an Account?</b></h4>
 
-      <input type="button" class="btn btn-primary1" ng-click="saveContact1()" value="Register" routerLink="/register"
-        routerLinkActive="active">
+     <input type="button" routerLink ='/register' routerLinkActive="active" class="btn btn-primary1" value = "Register" >
 
-    </div>
-  </section>
-
-
-
+ </div>
+</section>
 </body>
-
 </html>

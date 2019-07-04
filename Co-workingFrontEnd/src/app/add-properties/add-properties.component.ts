@@ -17,10 +17,20 @@ export class AddPropertiesComponent implements OnInit {
   constructor(private _formBuilder: FormBuilder) {}
   ngOnInit() {
      this.firstFormGroup = this._formBuilder.group({
-        firstCtrl: ['', Validators.required]
+        IdCtrl: ['', Validators.required],
+       NameCtrl: ['', Validators.required],
+      CategoryCtrl: ['', Validators.required], 
+       PriceCtrl: ['', Validators.required]
      });
      this.secondFormGroup = this._formBuilder.group({
-        secondCtrl: ['', Validators.required]
+        NumberCtrl: ['', Validators.required],
+        AreaCtrl: ['', Validators.required],
+        CityCtrl: ['', Validators.required],
+        StateCtrl: ['', Validators.required],
+        CountryCtrl: ['', Validators.required],
+        PincodeCtrl: ['', Validators.required]
+      
      });
   }
-}
+  }
+

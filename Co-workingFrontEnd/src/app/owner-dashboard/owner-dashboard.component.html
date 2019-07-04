@@ -4,6 +4,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<app-navbar> </app-navbar>
+<br>
+<br>
+<!-- <br> -->
 <body>
 <div class="card">
     <div class="image-container">
@@ -19,15 +23,16 @@
                     <a href="" routerLink ='/edit' routerLinkActive="active">Edit</a>
                 </div>
             </div>
+            <div class="cards" *ngFor="let data of ArrayOfOwnerData"></div>
             <div class="col-md-9">
                 <div class="iconuser">
-                    <i class="fas fa-user"> </i>
+                    <i class="fas fa-user"> {{ArrayOfOwnerData[0].name}} </i>
                 </div>
                 <div class="iconphone">
-                    <i class="fa fa-phone"></i>
+                    <i class="fa fa-phone"> {{ArrayOfOwnerData[0].contact}}</i>
                 </div>
                 <div class="iconmail">
-                    <i class="fa fa-envelope"></i>
+                    <i class="fa fa-envelope"> {{ArrayOfOwnerData[0].email}}</i>
                 </div>
             </div>
             <div class="property">
@@ -41,3 +46,4 @@
     </button>
     </div>
     </body>
+    <app-footer></app-footer>
