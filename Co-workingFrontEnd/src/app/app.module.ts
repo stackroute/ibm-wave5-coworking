@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomMaterialModule } from './material/material.module';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -67,7 +67,8 @@ import { BookingComponent } from './booking/booking.component';
     MatButtonModule,
     MatFormFieldModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
     
   ],
   providers: [CardService],
