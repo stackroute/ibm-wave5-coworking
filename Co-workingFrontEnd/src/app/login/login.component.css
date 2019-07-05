@@ -1,4 +1,4 @@
-/* body {
+body {
     background-image: url("https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
  
     height: 800px;
@@ -45,7 +45,7 @@
     border-radius: 4px;
  }
  .input-container {
-    display: -ms-flexbox; 
+    display: -ms-flexbox; /* IE10 */
     display: flex;
     width: 250px;
     margin-bottom: 15px;
@@ -95,5 +95,3 @@
  
  
  }
-
-  */

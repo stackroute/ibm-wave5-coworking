@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-login',
@@ -8,12 +7,9 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private modelService:NgbModal) { }
+  constructor() { }
 
   ngOnInit() {
   }
-    openModal(content:String){
-    this.modelService.open(content);
-      console.log(content);
-    }
+
 }
