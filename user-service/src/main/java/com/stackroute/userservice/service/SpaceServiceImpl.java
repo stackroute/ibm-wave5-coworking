@@ -51,4 +51,11 @@ public class SpaceServiceImpl implements SpaceService {
         throw new SpaceNotFound("Track not Found exception occured");
 
     }
+    @Override
+    public Space findByName(String name)  {
+
+        return spaceRepository.findByName(name);
+    }
+
+
 }

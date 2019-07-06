@@ -14,9 +14,7 @@ public class Space {
     private Category category;
 
     private Amenities amenities;
-
-
-
+    private User user;
 
     @Id
     int spaceId;
@@ -69,11 +67,13 @@ public class Space {
         this.category = category;
     }
 
-//    public void setDimension(Dimension dimension) {
-//        this.dimension = dimension;
-//    }
+    public User getUser() {
+        return user;
+    }
 
-
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Location getLocation() {
         return location;
@@ -86,10 +86,6 @@ public class Space {
     public Category getCategory() {
         return category;
     }
-
-//    public Dimension getDimension() {
-//        return dimension;
-//    }
 
     public Amenities getAmenities() {
         return amenities;

@@ -1,4 +1,5 @@
 package com.stackroute.userservice.service;
+import com.stackroute.kafka.domain.Space;
 import com.stackroute.kafka.domain.User;
 import com.stackroute.userservice.exception.UserAlreadyExists;
 import com.stackroute.userservice.exception.UserNotFoundException;

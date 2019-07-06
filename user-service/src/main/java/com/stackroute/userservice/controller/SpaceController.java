@@ -28,11 +28,15 @@ public class SpaceController {
     Address address=new Address();
     Dimension dimension=new Dimension();
     Amenities amenities=new Amenities();
+    User user=new User();
 
     @PostMapping("/newSpace")
     public ResponseEntity<Space> saveSpace(@RequestBody Space space){
         ResponseEntity responseEntity;
         try {
+            user=space.getUser();
+            space.setUser(user);
+
             category = space.getCategory();
             space.setCategory(category);
 
@@ -61,6 +65,7 @@ public class SpaceController {
         return responseEntity;
     }
 
+
     @PutMapping("/space")
     public ResponseEntity<?> updateSpace(@RequestBody Space space) {
 
@@ -83,6 +88,12 @@ public class SpaceController {
             responseEntity=new ResponseEntity(spaceNotFound.getMessage(),HttpStatus.CONFLICT);
         }
         return  responseEntity;
+    }
+
+    @GetMapping("/{name}")
+    public ResponseEntity<Space> getByName(@PathVariable String name){
+        ResponseEntity responseEntity=new ResponseEntity<Space>(spaceService.findByName(name),HttpStatus.OK);
+        return responseEntity;
     }
 
 }
