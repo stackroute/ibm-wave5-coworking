@@ -11,8 +11,6 @@ public class Located {
     @GraphId
     private long id;
 
-//    @StartNode
-//    private Space space;
     @StartNode
     private Category category;
     @EndNode

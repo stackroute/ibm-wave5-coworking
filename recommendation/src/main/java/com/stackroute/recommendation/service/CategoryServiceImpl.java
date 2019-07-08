@@ -1,6 +1,7 @@
 package com.stackroute.recommendation.service;
 
 import com.stackroute.recommendation.domain.Category;
+import com.stackroute.recommendation.domain.Space;
 import com.stackroute.recommendation.repository.CategoryRepository;
 import com.stackroute.recommendation.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ CategoryRepository categoryRepository;
     }
 
     @Override
-    public Category create(long categoryId, String categoryName, double price,String space) {
+    public Category create(long categoryId, String categoryName, double price, Space space) {
         return categoryRepository.createNode(categoryId,categoryName,price,space);
     }
 

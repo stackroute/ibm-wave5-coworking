@@ -29,9 +29,8 @@ public class SpaceServiceImpl implements SpaceService {
     }
 
     @Override
-    public Space create(long spaceId, String spaceName,Collection<String> categories) {
-     //   Collection<String> categorie=spaceRepository.getAllCategory();
-        return spaceRepository.createNode(spaceId,spaceName,categories);
+    public Space create(long spaceId, String spaceName) {
+        return spaceRepository.createNode(spaceId,spaceName);
     }
 
     @Override

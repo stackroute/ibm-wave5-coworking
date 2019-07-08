@@ -1,6 +1,7 @@
 package com.stackroute.recommendation.service;
 
 import com.stackroute.recommendation.domain.Category;
+import com.stackroute.recommendation.domain.Space;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -12,7 +13,7 @@ public interface CategoryService {
 
     public Category findByName(String categoryName);
     public Collection<Category> getAll();
-    public Category create(long categoryId, String categoryName, double price,String space);
+    public Category create(long categoryId, String categoryName, double price, Space space);
     public Category delete(Long categoryId);
     public Category deleteAll();
     public Category update(long categoryId,String categoryName,double price);

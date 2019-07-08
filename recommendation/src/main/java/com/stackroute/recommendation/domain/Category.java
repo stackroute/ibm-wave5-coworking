@@ -17,19 +17,26 @@ public class Category {
     @Property
     private String categoryName;
     private double price;
-    String space;
+    Space space;
+
+    public Space getSpace() {
+        return space;
+    }
+
+    public void setSpace(Space space) {
+        this.space = space;
+    }
 
     public Category() {
     }
 
-    @Relationship(type = "Located",direction = Relationship.INCOMING)
+    @Relationship(type = "Located", direction = Relationship.INCOMING)
     private List<Location> locations;
 
-    public Category(long categoryId, String categoryName, double price,String space) {
+    public Category(long categoryId, String categoryName, double price) {
         this.categoryId = categoryId;
         this.categoryName = categoryName;
         this.price = price;
-        this.space=space;
     }
 
     public long getCategoryId() {
@@ -43,8 +50,6 @@ public class Category {
     public double getPrice() {
         return price;
     }
-
-    public String getSpaceName() {
-        return space;
-    }
 }
+
+

@@ -5,6 +5,7 @@ import org.neo4j.ogm.annotation.GraphId;
 import org.neo4j.ogm.annotation.NodeEntity;
 import org.neo4j.ogm.annotation.Property;
 import org.neo4j.ogm.annotation.Relationship;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Collection;
 import java.util.List;
@@ -17,18 +18,6 @@ public class Space {
 
     @Property
     private String spaceName;
-
-   // private String location;
-//    Category category1=new Category();
-//    private String categoryName=category1.getCategoryName();
-//
-//    public Collection<String> getCategory() {
-//        return category;
-//    }
-//
-//    public void setCategory(Collection<String> category) {
-//        this.category = category;
-//    }
 
     @Relationship(type = "Contains",direction = Relationship.INCOMING)
     private Collection<String> category;
@@ -52,5 +41,11 @@ public class Space {
         return spaceName;
     }
 
-
+    @Override
+    public String toString() {
+        return "Space{" +
+                "spaceId=" + spaceId +
+                ", spaceName='" + spaceName + '\'' +
+                '}';
+    }
 }

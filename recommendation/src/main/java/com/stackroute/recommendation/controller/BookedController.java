@@ -24,9 +24,9 @@ BookedService bookedService;
         return bookedService.getRelationship();
     }
 
-    @PostMapping("/newRelationship/{name}/{categoryName}/{spaceName}")
-    public User relationship(@PathVariable String name, @PathVariable String categoryName,@PathVariable String spaceName) {
-        User user1 = bookedService.createRelationship(name, categoryName,spaceName);
+    @PostMapping("/newRelationship/{name}/{categoryName}/{spaceId}")
+    public User relationship(@PathVariable String name, @PathVariable String categoryName,@PathVariable long spaceId) {
+        User user1 = bookedService.createRelationship(name, categoryName,spaceId);
         return user1;
     }
 

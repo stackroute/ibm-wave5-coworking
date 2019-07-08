@@ -12,17 +12,11 @@ public interface LocatedRepository extends Neo4jRepository<Space,Long> {
     @Query("MATCH (u:Space)-[r:Located]->(m:Location) RETURN u,r,m")
     public Collection<Space> getRelationship();
 
-   // MATCH (Contains)-[:Located]->(l:Location) RETURN l;
-
     @Query("MATCH (a:Space),(b:Location) WHERE a.spaceName = {spaceName} AND b.locationName = {locationName} CREATE (a)-[r:Located]->(b) RETURN r")
     public Space createRelationship(String spaceName,String locationName);
 
     @Query("MATCH (a:Category),(b:Location) WHERE a.categoryName = {categoryName} AND b.locationName = {locationName} CREATE (a)-[r:Located]->(b) RETURN r")
     public Category createRelationshipLoc(String categoryName, String locationName);
-
-    //MATCH (Booked)-[:Located]->(l:Location) RETURN l;
-
-    //MATCH (Located)<-[:Located]-(s:Space) RETURN s;
 
     @Query( "MATCH (Category)-[r:Located]->(Location) DELETE r;")
     public Category deleteRelationshipcat();
@@ -36,19 +30,7 @@ public interface LocatedRepository extends Neo4jRepository<Space,Long> {
     @Query("MATCH (c:Category)<-[:Contains]-(m:Space) RETURN c.categoryName")
     public ArrayList<String> getAllCategoryName();
 
-    @Query("MATCH (User)-[b:Booked]->(c:Category)-[:Contains]-(m:Space)-[:Located]->(n:Location) WITH distinct c as c MATCH (n:Location)<-[:Located]-(s:Space)-[contains]-(l:Category) WHERE c.categoryName=l.categoryName and s.spaceName<>c.space RETURN s,l")
+    @Query("MATCH (User)-[b:Booked]->(c:Category)-[:Contains]-(m:Space)-[:Located]->(n:Location)<-[:Located]-(s:Space)-[contains]-(l:Category) WHERE c.categoryName=l.categoryName and s.spaceId<>c.space RETURN s,l")
     public Collection<Space> createRecommendationloc();
-
-//    @Query("MATCH (User {name:'abc'})-[b:Booked]->(c:Category)-[:Contains]-(m:Space)-[:Located]->(n:Location) WITH distinct n as n MATCH (s:Space)-[:Located]-(n) RETURN s")
-//    public Collection<Space> createRecommendation();
-
-//    @Query("MATCH (User {name:'abc'})-[b:Booked]->(c:Category)-[:Contains]-(m:Space)-[:Located]->(n:Location) WITH distinct n as n MATCH (User {name:'abc'})-[b:Booked]->(c:Category)-[:Contains]-(m:Space)-[:Located]->(n:Location) WITH distinct c as c MATCH (s:Space)-[:Contains]->(c)  RETURN s")
-//    public Collection<Space> createRecommendation();
-
-
-//    MATCH (User {name:"abc"})-[b:Booked]->(c:Category)-[:Contains]-(m:Space)-[:Located]->(n:Location)
-//    WITH distinct n as n
-//    MATCH (s:Space)-[:Located]-(n) RETURN s
-
 
 }

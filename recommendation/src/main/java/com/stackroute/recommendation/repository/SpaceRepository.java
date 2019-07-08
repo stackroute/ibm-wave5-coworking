@@ -13,8 +13,8 @@ public interface SpaceRepository extends Neo4jRepository<Space,Long> {
     @Query("MATCH (n:Space) RETURN n")
     public Collection<Space> getAll();
 
-    @Query("CREATE (u:Space) SET u.spaceId={spaceId},u.spaceName={spaceName},u.category={categories}")
-    public Space createNode(long spaceId, String spaceName,Collection<String> categories);
+    @Query("CREATE (u:Space) SET u.spaceId={spaceId},u.spaceName={spaceName}")
+    public Space createNode(long spaceId, String spaceName);
 
 
     @Query("MATCH (n:Category)-[:Contains]-(s:Space) WHERE s.spaceName=n.space RETURN n.categoryName")

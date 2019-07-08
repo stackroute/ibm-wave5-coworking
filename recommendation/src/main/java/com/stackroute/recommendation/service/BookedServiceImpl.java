@@ -24,8 +24,8 @@ public class BookedServiceImpl implements BookedService {
     }
 
     @Override
-    public User createRelationship(String name, String categoryName,String spaceName) {
-        return bookedRepository.createRelationship(name,categoryName,spaceName);
+    public User createRelationship(String name, String categoryName,long spaceId) {
+        return bookedRepository.createRelationship(name,categoryName,spaceId);
     }
 
     @Override

@@ -2,6 +2,7 @@ package com.stackroute.recommendation.controller;
 
 
 import com.stackroute.recommendation.domain.Category;
+import com.stackroute.recommendation.domain.Space;
 import com.stackroute.recommendation.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +21,8 @@ import java.util.Collection;
 public class CategoryController {
 
     public CategoryService categoryService;
+
+    Space space=new Space();
 
     @Autowired
     public CategoryController(CategoryService categoryService) {
@@ -41,7 +44,11 @@ public class CategoryController {
    // To create new user
     @PostMapping("/newCategory")
     public Category save(@RequestBody Category category) {
-        Category category1 = categoryService.create(category.getCategoryId(), category.getCategoryName(), category.getPrice(),category.getSpaceName());
+
+        space=category.getSpace();
+        category.setSpace(space);
+
+        Category category1 = categoryService.create(category.getCategoryId(), category.getCategoryName(), category.getPrice(),space);
         return category1;
     }
 

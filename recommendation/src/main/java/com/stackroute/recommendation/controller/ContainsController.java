@@ -26,12 +26,14 @@ public class ContainsController {
         return containsService.getRelationship();
     }
 
-    @PostMapping("/newRelationship/{spaceName}")
-    public Space relationship(@PathVariable String spaceName) {
-        Space space1 = containsService.createRelationship(spaceName);
+    // create relationship
+    @PostMapping("/newRelationship/{spaceId}")
+    public Space relationship(@PathVariable long spaceId) {
+        Space space1 = containsService.createRelationship(spaceId);
         return space1;
     }
 
+    //creating relationship between all nodes
     @PostMapping("/allRelationship")
     public Space relationshipAll() {
         Space space1 = containsService.createRelationshipAll();
@@ -45,6 +47,7 @@ public class ContainsController {
         return space1;
     }
 
+    //Recommendation based on price
     @GetMapping("/priceRecommendation")
         public Collection<Space> recommondtionPrice() {
             return containsService.recommendationprice();

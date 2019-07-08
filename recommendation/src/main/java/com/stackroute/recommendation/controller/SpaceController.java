@@ -40,11 +40,7 @@ public class SpaceController {
     // To create new user
     @PostMapping("/newSpace")
     public Space save(@RequestBody Space space) {
-        Collection<Category> category1=categoryService.getAll();
-        //space.setCategory(spaceService.getAllCategory());
-        Collection<String> categories=spaceService.getAllCategory();
-       // space.setCategory(categories);
-        Space space1 = spaceService.create(space.getSpaceId(),space.getSpaceName(),categories);
+        Space space1 = spaceService.create(space.getSpaceId(),space.getSpaceName());
         return space1;
     }
 

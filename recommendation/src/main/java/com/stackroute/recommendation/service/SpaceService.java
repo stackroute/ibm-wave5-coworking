@@ -11,7 +11,7 @@ public interface SpaceService {
 
     public Space findByName(String spaceName);
     public Collection<Space> getAll();
-    public Space create(long spaceId, String spaceName,Collection<String> categories);
+    public Space create(long spaceId, String spaceName);
     public Space delete(Long spaceId);
     public Space deleteAll();
     public Space update(long spaceId, String spaceName);

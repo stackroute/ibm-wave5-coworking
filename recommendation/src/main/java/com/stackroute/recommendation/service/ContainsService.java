@@ -10,7 +10,7 @@ import java.util.Collection;
 public interface ContainsService {
 
     public Collection<Space> getRelationship();
-    public Space createRelationship(String spaceName);
+    public Space createRelationship(long spaceId);
     public Space createRelationshipAll();
     public Space deleteRelationship();
     public Collection<Space> recommendationprice();

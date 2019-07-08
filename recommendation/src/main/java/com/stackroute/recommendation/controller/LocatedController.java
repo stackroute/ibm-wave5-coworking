@@ -25,12 +25,14 @@ public class LocatedController {
         return locatedService.getRelationship();
     }
 
+    //create relationship
     @PostMapping("/newRelationship/space/{spaceName}/{locationName}")
     public Space relationship(@PathVariable String spaceName, @PathVariable String locationName) {
         Space space1 = locatedService.createRelationship(spaceName, locationName);
         return space1;
     }
 
+    //create relationship
     @PostMapping("/newRelationship/category/{categoryName}/{locationName}")
     public Category relationshipLoc(@PathVariable String categoryName, @PathVariable String locationName) {
         Category category1 = locatedService.createRelationshipLoc(categoryName, locationName);
