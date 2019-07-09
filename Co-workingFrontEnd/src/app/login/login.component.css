@@ -1,97 +1,99 @@
-body {
-    background-image: url("https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
- 
-    height: 800px;
-    opacity: 0.8;
-    background-size: cover;
-    width:100%;
-    overflow: hidden;
- 
- }
- 
- .well {
-    min-height: 20px;
-    padding: 20px;
-    margin-bottom: 20px;
-    background-color: lightsteelblue;
-    border: 1px solid black;
-    border-radius: 4px;
-    width: 315px;
- }
- #col1{
-    padding-top: 18%;
-    padding-left: 5%;
- }
- #col2{
-    padding-top: 22%;
-    padding-left: 10%;
-    color:crimson;
- }
- .btn-primary {
-    color: #fff;
-    background-color: black;
-    border-color: #b58964;
-    margin-left: 40%;
-    border-radius: 25px;
-    border-radius: 25px;
- }
- 
- .well[_ngcontent-oal-c1] {
-    min-height: 20px;
-    padding: 19px;
-    margin-bottom: 20px;
-    background-color: lightcoral;
-    border: 1px solid #e3e3e3;
-    border-radius: 4px;
- }
- .input-container {
-    display: -ms-flexbox; /* IE10 */
-    display: flex;
-    width: 250px;
-    margin-bottom: 15px;
-  }
-  .icon {
-    padding: 10px;
-    background: grey;
-    color: white;
-    min-width: 50px;
-    text-align: center;
-  }
-  .input-field {
-    width: auto;
-    padding: 10px;
-    outline: none;
-  }
- 
-  .login{
-      color: black;
-      text-align: center;
-       position: absolute;
-  left: 130%;
-  top: 40%;
-  width: 80%;
-  height: 50%;
- 
-  }
-  .register{
-      color:black;
-      font-size: 20px;
-      padding-left: 60px;
-  }
-  form {
-    width: 320px;
-    margin: 0 auto;
- 
- 
- }
- 
-  .btn-primary1{
-    color: #fff;
-    background-color: black;
-    border-color: #b58964;
-    margin-left: 18%;
-    border-radius: 25px;
-    border-radius: 25px;
- 
- 
- }
+/* Made with love by Mutiullah Samim*/
+
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+
+
+.container{
+height: 100%;
+align-content: center;
+}
+
+
+.card{
+height: 300px;
+margin-top: auto;
+margin-bottom: auto;
+width: 400px;
+background-color:white!important;
+}
+
+.social_icon span{
+font-size: 60px;
+margin-left: 10px;
+color: #17a2b8;
+}
+
+.social_icon span:hover{
+color: white;
+cursor: pointer;
+}
+
+.card-header h3{
+color: white;
+}
+
+.social_icon{
+position: absolute;
+right: 20px;
+top: -45px;
+}
+
+.input-group-prepend span{
+width: 50px;
+background-color:#17a2b8;
+color: black;
+border:0 !important;
+}
+
+input:focus{
+outline: 0 0 0 0  !important;
+box-shadow: 0 0 0 0 !important;
+
+}
+
+.remember{
+color: white;
+}
+
+.remember input
+{
+width: 20px;
+height: 20px;
+margin-left: 15px;
+margin-right: 5px;
+}
+
+.login_btn{
+color: black;
+background-color: #17a2b8;
+width: 100px;
+}
+
+.login_btn:hover{
+color: black;
+background-color: white;
+}
+
+.links{
+color: white;
+}
+
+.links a{
+margin-left: 4px;
+}
+
+
+
+.card-header{
+
+   background-color: black;
+   margin-bottom: 10px;
+}
+
+
+
+.d-flex{
+   margin-top: 30px;
+}
+

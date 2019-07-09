@@ -7,7 +7,7 @@
         },
         {
             "SpaceId": 1004,
-            "SpaceName": "91Spring Board",
+            "SpaceName": "91Spring",
             "location": "Madiwala"
         },
         {
@@ -64,7 +64,7 @@
         },
         {
             "SpaceId": 1004,
-            "SpaceName": "91Spring Board",
+            "SpaceName": "91Spring",
             "location": "Madiwala"
         },
         {
@@ -77,5 +77,96 @@
             "SpaceName": "Innov8",
             "location": "Kormangala"
         }
-    ]
-}
+    ],
+
+    "Client-Details": [
+        { 
+            "name": "Rutuja Kulkarni", 
+            "contact": 1234567890, 
+            "email": "rutu14.k@gmail.com" 
+        }
+    ],
+
+    
+        "details": [
+            { 
+              "spacename": "stackroute",
+              "category":"Training Room", 
+              "location": "Koramangala,Banglore" ,
+              "price": 2000,
+              "from": "01-06-2011",
+              "to":"22-11-2015"
+            },
+
+            { 
+             "spacename": "Stackroute",
+             "category":"Training Room",
+             "location": "Jayanagar,Hyderabad",
+             "price": 2000,
+              "from": "01-06-2011",
+              "to":"22-11-2015"
+            },
+
+           { 
+             "spacename": "stackroute",
+             "category":"Hot desk", 
+             "location": "Koramangala,Banglore" ,
+             "price": 2000,
+              "from": "01-06-2011",
+              "to":"22-11-2015"
+           },
+           { 
+               "spacename": "Stackroute",
+               "category":"Meeting Room",
+               "location": "Jayanagar,Banglore",
+               "price": 2000,
+              "from": "01-06-2011",
+              "to":"22-11-2015"
+            },
+          
+          
+            {
+                "clientname":"Rutuja Kulkarni,"
+            }
+        ],
+            
+             "Owner-Details": 
+                [
+                    { "name": "Tejaswini", 
+                        "contact": 9876543210, 
+                        "email": "tejaswinishet2@gmail.com" 
+                    }
+                ],
+                "Space-Details": [
+                    { "spacename": "NIIT", "location": "Koramangala,Bangalore" },
+                    { "spacename": "StackRoute", "location": "RajajiNagar,Bangalore" }
+                ],
+            
+            "Client-space-details":
+            [
+                {
+                    "category":"Hot desk",
+                    "spacename":"NIIT",
+                    "location":"Kormangala,Bangalore"
+                },
+                {
+                    "category":"Hot desk",
+                    "spacename":"NIIT",
+                    "location":"Kormangala,Bangalore"
+                },
+                {
+                    "category":"Hot desk",
+                    "spacename":"NIIT",
+                    "location":"Kormangala,Bangalore"
+                },
+                {
+                    "category":"Hot desk",
+                    "spacename":"NIIT",
+                    "Location":"Kormangala,Bangalore"
+                }
+            ]
+            
+        
+
+      
+  }

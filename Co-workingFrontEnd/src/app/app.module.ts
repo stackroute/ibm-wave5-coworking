@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CustomMaterialModule } from './material/material.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,12 +22,13 @@ import { OwnerDashboardComponent } from './owner-dashboard/owner-dashboard.compo
 import { AddPropertiesComponent } from './add-properties/add-properties.component';
 import { InformationUpdateComponent } from './information-update/information-update.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { MatCardModule, MatButtonToggleModule, MatStepperModule, MatInputModule, MatButtonModule } from '@angular/material';
+import { MatCardModule, MatButtonToggleModule, MatStepperModule, MatInputModule, MatButtonModule, MatSelectModule, MatOptionModule } from '@angular/material';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CardComponent } from './card/card.component';
 import {HttpClientModule} from '@angular/common/http'
 import { CardService } from './card.service';
 import { BookingComponent } from './booking/booking.component';
+import { ClientProfileComponent } from './client-profile/client-profile.component';
 
 
 @NgModule({
@@ -48,6 +50,7 @@ import { BookingComponent } from './booking/booking.component';
     AboutUsComponent,
     CardComponent,
     BookingComponent,
+    ClientProfileComponent,
     
 
   ],
@@ -67,7 +70,10 @@ import { BookingComponent } from './booking/booking.component';
     MatButtonModule,
     MatFormFieldModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
+    MatSelectModule,
+    MatOptionModule
     
   ],
   providers: [CardService],

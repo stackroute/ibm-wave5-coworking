@@ -5,7 +5,11 @@
   
   .details{
     font-size: 18px;
-  }
+	}
+	
+	.container{
+		font-family: sans-serif;
+	}
 
   /* cards css */
 

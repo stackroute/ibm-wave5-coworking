@@ -10,7 +10,7 @@ export class ClientDashboardComponent implements OnInit {
 
   constructor(private clientService:ClientDashboardService) { }
   ArrayOfClientData : any = [];
-
+  ArrayOfSpaceDetails
 
 ngOnInit() {
       this.clientService.getClientData().subscribe(data=>
@@ -19,5 +19,9 @@ ngOnInit() {
           //  console.log
            this.ArrayOfClientData=data;
         });
+        this.clientService.getSpaceDetails().subscribe(data=>
+          {
+            this.ArrayOfSpaceDetails=data;
+          });
   }
 }

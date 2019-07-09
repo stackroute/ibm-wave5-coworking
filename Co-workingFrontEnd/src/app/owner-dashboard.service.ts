@@ -12,5 +12,9 @@ export class OwnerDashboardService {
   getOwnerData():any{
     return this.httpClient.get("http://localhost:3000/Owner-Details")
   }
+
+  getSpaceData():any{
+    return this.httpClient.get("http://localhost:3000/Space-Details");
+  }
 }
 

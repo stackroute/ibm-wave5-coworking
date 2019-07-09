@@ -10,6 +10,10 @@ export class ClientDashboardService {
   constructor(private httpClient:HttpClient) { }
 
   getClientData():any{
-    return this.httpClient.get("http://localhost:3000/Client-Details")
+    return this.httpClient.get("http://localhost:3000/Client-space-details")
+  }
+
+  getSpaceDetails():any{
+    return this.httpClient.get("http://localhost:3000/details");
   }
 }

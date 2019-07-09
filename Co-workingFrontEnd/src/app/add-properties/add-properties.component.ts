@@ -11,7 +11,8 @@ export class AddPropertiesComponent implements OnInit {
   title = 'materialApp';   
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
-
+  thirdFormGroup: FormGroup;
+  
 
   
   constructor(private _formBuilder: FormBuilder) {}
@@ -30,6 +31,9 @@ export class AddPropertiesComponent implements OnInit {
         CountryCtrl: ['', Validators.required],
         PincodeCtrl: ['', Validators.required]
       
+     });
+     this.thirdFormGroup = this._formBuilder.group({
+      AmenitiesCtrl: ['', Validators.required]
      });
   }
   }

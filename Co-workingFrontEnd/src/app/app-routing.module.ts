@@ -11,19 +11,21 @@ import { AddPropertiesComponent } from './add-properties/add-properties.componen
 import { AboutUsComponent } from './about-us/about-us.component';
 import { CardComponent } from './card/card.component';
 import { BookingComponent } from './booking/booking.component';
+import { ClientProfileComponent } from './client-profile/client-profile.component';
 const routes: Routes = [
   {path:'',component:LandingPageComponent},
   {path:'Plans',component:PlansComponent},
   // {path:'location',component:LocationComponent}
   {path:'login',component:LoginComponent},
   {path:'register',component:RegistrationComponent},
-  {path:'client-login',component:ClientDashboardComponent},
+  {path:'client-login',component:ClientProfileComponent},
   {path:'owner-login',component:OwnerDashboardComponent},
   // {path:'edit',component:InformationUpdateComponent},
   {path:'add-property',component:AddPropertiesComponent},
   {path:'about',component:AboutUsComponent},
   {path: 'card', component: CardComponent},
-  {path: 'details', component:BookingComponent}
+  {path: 'details', component:BookingComponent},
+  {path: 'client-dashboard',component:ClientDashboardComponent}
 
 ];
 
