@@ -1,9 +1,14 @@
 package com.stackroute.kafka.domain;
 
+import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.math.BigDecimal;
 import java.util.List;
 
+@Document
+@Data
 public class Space {
     @Id
     int spaceId;
@@ -13,7 +18,6 @@ public class Space {
     private Location location;
     private Address address;
     private List<Category> category;
-
     private Amenities amenities;
     private User user;
 

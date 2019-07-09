@@ -10,6 +10,9 @@ public class Producer {
     @Value("${kafka.topic.json}")
     private String jsonTopic;
 
+    @Value("${kafka.topic.json1}")
+    private String jsonTopic1;
+
     private static final Logger LOGGER =
             LoggerFactory.getLogger(Producer.class);
 
@@ -20,4 +23,14 @@ public class Producer {
         LOGGER.info("sending data of user='{}'", user.toString());
         kafkaTemplate.send(jsonTopic, user);
     }
+
+    @Autowired
+    private KafkaTemplate<String, Space> kafkaTemplate1;
+
+
+    public void send1(Space space) {
+        LOGGER.info("sending data of Space='{}'", space.toString());
+        kafkaTemplate1.send(jsonTopic1, space);
+    }
+
 }

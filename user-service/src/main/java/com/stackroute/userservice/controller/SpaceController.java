@@ -1,6 +1,4 @@
 package com.stackroute.userservice.controller;
-
-
 import com.stackroute.kafka.domain.*;
 import com.stackroute.userservice.exception.SpaceAlreadyExistException;
 import com.stackroute.userservice.exception.SpaceNotFound;
@@ -10,27 +8,30 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping(value="api/v1")
 public class SpaceController {
 
     SpaceServiceImpl spaceService;
 
     @Autowired
+    Producer producer;
     public SpaceController(SpaceServiceImpl spaceService) {
         this.spaceService = spaceService;
     }
 
-    Category category=new Category();
+    List<Category> category=new ArrayList<Category>();
     Location location=new Location();
     Address address=new Address();
     Dimension dimension=new Dimension();
     Amenities amenities=new Amenities();
     User user=new User();
 
-    @PostMapping("/newSpace")
+    @PostMapping("space")
     public ResponseEntity<Space> saveSpace(@RequestBody Space space){
         ResponseEntity responseEntity;
         try {
@@ -38,6 +39,13 @@ public class SpaceController {
             space.setUser(user);
 
             category = space.getCategory();
+
+            for (int i=0; i<=category.size()-1;i++)
+            {
+               Category category1= category.get(i);
+               dimension= category1.getDimension();
+              category1.setDimension(dimension);
+            }
             space.setCategory(category);
 
             location = space.getLocation();
@@ -46,27 +54,25 @@ public class SpaceController {
             address = space.getAddress();
             space.setAddress(address);
 
-            dimension = category.getDimension();
-            category.setDimension(dimension);
-
             amenities=space.getAmenities();
             space.setAmenities(amenities);
 
             responseEntity = new ResponseEntity<Space>(spaceService.saveSpace(space), HttpStatus.OK);
+            producer.send1(space);
         }catch (SpaceAlreadyExistException spacealreadyexist){
             responseEntity=new ResponseEntity(spacealreadyexist.getMessage(),HttpStatus.CONFLICT);
         }
       return responseEntity;
     }
 
-    @GetMapping("/AllSpaces")
+    @GetMapping("space")
     public ResponseEntity<?> getSpace(){
         ResponseEntity responseEntity=new ResponseEntity<List<Space>>(spaceService.getAllSpaces(),HttpStatus.OK);
         return responseEntity;
     }
 
 
-    @PutMapping("/space")
+    @PutMapping("space")
     public ResponseEntity<?> updateSpace(@RequestBody Space space) {
 
         ResponseEntity responseEntity;
@@ -78,7 +84,7 @@ public class SpaceController {
         }
         return responseEntity;
     }
-    @DeleteMapping("space/{spaceId}")
+    @DeleteMapping("space")
     public ResponseEntity<?> deleteSpace(@PathVariable int spaceId){
         ResponseEntity responseEntity;
         try {
@@ -90,10 +96,9 @@ public class SpaceController {
         return  responseEntity;
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("space/{name}")
     public ResponseEntity<Space> getByName(@PathVariable String name){
         ResponseEntity responseEntity=new ResponseEntity<Space>(spaceService.findByName(name),HttpStatus.OK);
         return responseEntity;
     }
-
 }

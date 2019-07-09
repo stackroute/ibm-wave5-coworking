@@ -1,6 +1,6 @@
 package com.stackroute.userservice.controller;
 
-//import com.stackroute.kafka.domain.Producer;
+import com.stackroute.kafka.domain.Producer;
 import com.stackroute.kafka.domain.Space;
 import com.stackroute.kafka.domain.User;
 import com.stackroute.userservice.exception.UserAlreadyExists;
@@ -19,7 +19,7 @@ public class UserController {
     UserService userService;
 
     @Autowired
-//    Producer producer;
+    Producer producer;
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -29,7 +29,7 @@ public class UserController {
         ResponseEntity responseEntity;
         try{
             userService.saveUser(user);
-//            producer.send(user);
+            producer.send(user);
             responseEntity=new ResponseEntity<String>("Successfully created", HttpStatus.CREATED);
 
         }catch (UserAlreadyExists ex){

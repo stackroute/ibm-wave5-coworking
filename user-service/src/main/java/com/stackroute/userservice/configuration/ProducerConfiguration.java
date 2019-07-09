@@ -2,6 +2,7 @@ package com.stackroute.userservice.configuration;
 import java.util.HashMap;
 import java.util.Map;
 import com.stackroute.kafka.domain.Producer;
+import com.stackroute.kafka.domain.Space;
 import com.stackroute.kafka.domain.User;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
@@ -49,6 +50,18 @@ public class ProducerConfiguration {
     }
 
 
+
+
+    @Bean
+    public ProducerFactory<String, Space> producerFactory1() {
+        return new DefaultKafkaProducerFactory<String,Space>(producerConfigs());
+    }
+
+    @Bean
+    public KafkaTemplate<String, Space> kafkaTemplate1() {
+
+        return new KafkaTemplate<String,Space>(producerFactory1());
+    }
 
 
 

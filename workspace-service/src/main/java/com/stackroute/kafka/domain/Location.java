@@ -1,11 +1,5 @@
 package com.stackroute.kafka.domain;
-
-
-
 public class Location {
-
-
-
     String locationName;
     double latitude;
     double longitude;
@@ -32,3 +26,4 @@ public class Location {
         return longitude;
     }
 }
+
