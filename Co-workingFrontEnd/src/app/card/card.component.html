@@ -1,0 +1,49 @@
+
+
+<app-navbar> </app-navbar>
+<body>
+    
+    <div class="container" style="margin-top: 100px">
+        <div class="row" style="font-family: sans-serif">
+
+            <div class="column" >
+                <div class="card" *ngFor="let data of arrayOfSpace">
+                    <h4 class="card-text-heading"> Space Id :{{arrayOfSpace[1].SpaceId}}</h4>
+                    <h4 class="card-text">Space Name: {{arrayOfSpace[1].SpaceName}}</h4>
+                    <h4 class="card-text">Location: {{ arrayOfSpace[1].location }}</h4>
+                    <img class=" card-img-top "
+                        src=" https://www.lli.sg/content/dam/lli/images/Facility%20Booking%20Images/Facilities%20Images/Training%20Room/TR1-1%20&%201-2/Training%20Room%201-1%201-2 "
+                        alt=" Card image cap ">
+                       <p> <button routerLink ='/details' routerLinkActive="active" type="button" class="btn btn-sm btn-info">View</button></p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card" *ngFor="let data of arrayOfSpace">
+                    <h4 class="card-text-heading"> Space Id :{{arrayOfSpace[3].SpaceId}}</h4>
+                    <h4 class="card-text">Space Name: {{arrayOfSpace[3].SpaceName}}</h4>
+                    <h4 class="card-text">Location: {{ arrayOfSpace[3].location }}</h4>
+                    <img class=" card-img-top "
+                        src=" https://www.lli.sg/content/dam/lli/images/Facility%20Booking%20Images/Facilities%20Images/Training%20Room/TR1-1%20&%201-2/Training%20Room%201-1%201-2 "
+                        alt=" Card image cap ">
+                    <p><button routerLink ='/details' routerLinkActive="active" type="button" class="btn btn-sm btn-info">View</button>
+                        </p>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="card" *ngFor="let data of arrayOfSpace">
+                    <h4 class="card-text-heading"> Space Id :{{arrayOfSpace[2].SpaceId}}</h4>
+                    <h4 class="card-text">Space Name: {{arrayOfSpace[2].SpaceName}}</h4>
+                    <h4 class="card-text">Location: {{ arrayOfSpace[2].location }}</h4>
+                    <img class=" card-img-top "
+                        src=" https://www.lli.sg/content/dam/lli/images/Facility%20Booking%20Images/Facilities%20Images/Training%20Room/TR1-1%20&%201-2/Training%20Room%201-1%201-2 "
+                        alt=" Card image cap ">
+                    <p> <button routerLink ='/details' routerLinkActive="active" type="button" class="btn btn-sm btn-info">View</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<app-footer></app-footer>
