@@ -16,6 +16,9 @@ public interface SpaceRepository extends Neo4jRepository<Space,Long> {
     @Query("CREATE (u:Space) SET u.spaceId={spaceId},u.spaceName={spaceName}")
     public Space createNode(long spaceId, String spaceName);
 
+    @Query("MATCH (s:Space)-[:Located]-(l:Location) WHERE l.locationName={locationName} RETURN s")
+    public Collection<Space> getByLocation(String locationName);
+
 
     @Query("MATCH (n:Category)-[:Contains]-(s:Space) WHERE s.spaceName=n.space RETURN n.categoryName")
     public Collection<String> getAllCategory();

@@ -16,5 +16,6 @@ public interface SpaceService {
     public Space deleteAll();
     public Space update(long spaceId, String spaceName);
     public Collection<String> getAllCategory();
+    public Collection<Space> getSpace(String locationName);
 
 }

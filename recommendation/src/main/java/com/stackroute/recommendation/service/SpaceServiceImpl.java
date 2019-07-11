@@ -52,4 +52,9 @@ public class SpaceServiceImpl implements SpaceService {
     public Collection<String> getAllCategory() {
         return spaceRepository.getAllCategory();
     }
+
+    @Override
+    public Collection<Space> getSpace(String locationName) {
+        return spaceRepository.getByLocation(locationName);
+    }
 }

@@ -1,6 +1,7 @@
 package com.stackroute.kafka.domain;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.annotation.Id;
 
 public class Location {
 

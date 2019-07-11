@@ -64,5 +64,9 @@ public class SpaceController {
         return spaceService.update(spaceId, space.getSpaceName());
     }
 
+    @GetMapping("/location/{locationName}")
+    public Collection<Space> getSpace(@PathVariable String locationName) {
+        return spaceService.getSpace(locationName);
+    }
 
 }
