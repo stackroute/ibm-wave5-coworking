@@ -59,10 +59,6 @@ public class UserServiceImpl implements UserService {
     }
     @Override
     public User getByName(String name)  {
-        System.out.println("SDHPOFHPO");
-        System.out.println("sapupofsa"+name);
-
-
         return userRepository.findByName(name);
     }
 

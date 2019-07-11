@@ -86,9 +86,9 @@ public class UserController {
 
     @GetMapping("/user/{name}")
     public ResponseEntity<User> getByName(@PathVariable String name){
-        Space space =spaceService.findByName(name);
-        User user=space.getUser();
-        ResponseEntity responseEntity=new ResponseEntity<User>(user,HttpStatus.OK);
+//        Space space =spaceService.findByName(name);
+//        User user=space.getUser();
+        ResponseEntity responseEntity=new ResponseEntity<User>(userService.getByName(name),HttpStatus.OK);
         return responseEntity;
     }
 
