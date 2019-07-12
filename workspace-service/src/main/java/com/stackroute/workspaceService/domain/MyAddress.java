@@ -1,9 +1,11 @@
 package com.stackroute.workspaceService.domain;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document
 @Data
-public class Address {
+public class MyAddress {
     @Id
     int pincode;
 
@@ -13,10 +15,10 @@ public class Address {
     String state;
     String country;
 
-    public Address() {
+    public MyAddress() {
     }
 
-    public Address(String buildingNumber, String area, String city, String state, String country, int pincode) {
+    public MyAddress(String buildingNumber, String area, String city, String state, String country, int pincode) {
         this.buildingNumber = buildingNumber;
         this.area = area;
         this.city = city;

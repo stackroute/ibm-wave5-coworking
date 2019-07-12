@@ -11,8 +11,6 @@ import java.util.List;
 
 @Service
 public class SpaceServiceImpl implements SpaceService {
-
-
     SpaceRepository spaceRepository;
 
     @Autowired

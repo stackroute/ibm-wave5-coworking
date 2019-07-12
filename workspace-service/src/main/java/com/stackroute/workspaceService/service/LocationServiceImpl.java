@@ -1,8 +1,7 @@
 package com.stackroute.workspaceService.service;
-import com.stackroute.workspaceService.exception.LocationAlreadyExists;
 import com.stackroute.workspaceService.exception.LocationNotFoundException;
 import com.stackroute.workspaceService.repository.LocationRepository;
-import com.stackroute.workspaceService.domain.Location;
+import com.stackroute.workspaceService.domain.MyLocation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,24 +19,24 @@ public class LocationServiceImpl implements LocationService {
     }
 
     @Override
-    public List<Location> getLocation() {
+    public List<MyLocation> getLocation() {
         return locationRepository.findAll();
 
     }
 
     @Override
-    public Location saveLocation(Location location) throws LocationAlreadyExists {
-        if (locationRepository.existsByLocationName(location.getLocationName()))
-            throw new LocationAlreadyExists("location Already Exists");
+    public MyLocation saveLocation(MyLocation location) /*throws LocationAlreadyExists*/ {
+//        if (locationRepository.existsByLocationName(location.getLocationName()))
+//            throw new LocationAlreadyExists("location Already Exists");
 
-        Location savedCategory = locationRepository.save(location);
-        return savedCategory;
+        MyLocation savedLocation = locationRepository.save(location);
+        return savedLocation;
     }
 
     @Override
-    public boolean deleteLocation(Location location) throws Exception {
-        if (locationRepository.existsByLocationName(location.getLocationName())) {
-            locationRepository.deleteByLocationName(location.getLocationName());
+    public boolean deleteLocation(MyLocation location) throws Exception {
+        if (locationRepository.existsByLocationId(location.getLocationId())) {
+            locationRepository.deleteByLocationId(location.getLocationId());
             return true;
         } else {
             throw new Exception("Location you want to delete is not exist");
@@ -45,13 +44,18 @@ public class LocationServiceImpl implements LocationService {
     }
 
     @Override
-    public Location updateLocation(Location location) throws LocationNotFoundException {
-        if (locationRepository.existsByLocationName(location.getLocationName())) {
-            Location saveLocation = locationRepository.save(location);
+    public MyLocation updateLocation(MyLocation location) throws LocationNotFoundException {
+        if (locationRepository.existsByLocationId(location.getLocationId())) {
+            MyLocation saveLocation = locationRepository.save(location);
             return saveLocation;
         } else {
             throw new LocationNotFoundException("Location not found");
         }
+    }
+
+    @Override
+    public List<MyLocation> findByLocation(String locationName) {
+        return locationRepository.findByLocationName(locationName);
     }
 }
 

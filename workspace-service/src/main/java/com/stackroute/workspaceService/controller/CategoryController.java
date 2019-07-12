@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -17,32 +19,34 @@ public class CategoryController {
 
     CategoryService categoryService;
     MySpace mySpace = new MySpace();
-    Address address = new Address();
-    Dimension dimension = new Dimension();
-    Location location = new Location();
+    MyAddress address = new MyAddress();
+    MyDimension myDimension = new MyDimension();
+    MyLocation mylocation = new MyLocation();
+
 
 
     @Autowired
     public CategoryController(CategoryService categoryService) {
+
         this.categoryService = categoryService;
     }
 
     @PostMapping("category")
-    public ResponseEntity<?> saveCategory(@RequestBody Category1 category) throws CategoryAlreadyExists {
-        System.out.println("Category Object:" + category.toString());
+    public ResponseEntity<?> saveCategory(@RequestBody MyCategory mycategory) throws CategoryAlreadyExists {
+        System.out.println("Category Object:" + mycategory.toString());
         ResponseEntity responseEntity;
-        mySpace = category.getMySpace();
-        category.setMySpace(mySpace);
-        address = category.getAddress();
-        category.setAddress(address);
-        dimension = category.getDimension();
-        category.setDimension(dimension);
-        location = category.getLocation();
+        mySpace = mycategory.getMySpace();
+        mycategory.setMySpace(mySpace);
+        address = mycategory.getMyAddress();
+        mycategory.setMyAddress(address);
+        myDimension = mycategory.getMyDimension();
+        mycategory.setMyDimension(myDimension);
+        mylocation = mycategory.getLocation();
 
 
-        category.setLocation(location);
+        mycategory.setLocation(mylocation);
         try {
-            categoryService.saveCategory(category);
+            categoryService.saveCategory(mycategory);
             responseEntity = new ResponseEntity<String>(" Category Successfully Saved", HttpStatus.CREATED);
         } catch (CategoryAlreadyExists ex) {
             responseEntity = new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
@@ -55,15 +59,15 @@ public class CategoryController {
 
     @GetMapping("category")
     public ResponseEntity<?> getAllCategories() {
-        return new ResponseEntity<List<Category1>>(categoryService.getAllCategories(), HttpStatus.OK);
+        return new ResponseEntity<List<MyCategory>>(categoryService.getAllCategories(), HttpStatus.OK);
     }
 
 
     @PatchMapping("category")
-    public ResponseEntity<?> updateCategory(@RequestBody Category1 category) throws CategoryNotFoundException {
+    public ResponseEntity<?> updateCategory(@RequestBody MyCategory mycategory) throws CategoryNotFoundException {
         ResponseEntity responseEntity;
         try {
-            categoryService.updateCategory(category);
+            categoryService.updateCategory(mycategory);
             responseEntity = new ResponseEntity<String>(" category Updated Successfully", HttpStatus.CREATED);
         } catch (CategoryNotFoundException exception) {
             responseEntity = new ResponseEntity<String>(exception.getMessage(), HttpStatus.CONFLICT);
@@ -73,15 +77,27 @@ public class CategoryController {
 
 
     @DeleteMapping("category")
-    public ResponseEntity<String> deleteCategory(@RequestBody Category1 category) {
+    public ResponseEntity<String> deleteCategory(@RequestBody MyCategory mycategory) {
         ResponseEntity responseEntity;
         try {
-            boolean answer = categoryService.deleteCategory(category);
+            boolean answer = categoryService.deleteCategory(mycategory);
             return new ResponseEntity<String>(" Category Successfully deleted", HttpStatus.OK);
         } catch (Exception e) {
             responseEntity = new ResponseEntity<String>(e.getMessage(), HttpStatus.CONFLICT);
             e.printStackTrace();
         }
+        return responseEntity;
+    }
+
+    @GetMapping("category/{categoryName}")
+    public ResponseEntity<?>getByCategory(@PathVariable String categoryName)
+    {
+        System.out.println("ofdyfey");
+        List<MyCategory> list = new ArrayList<MyCategory>();
+        list= categoryService.findByCategory(categoryName);
+        System.out.println("st9t98dsa"+list.toString());
+        ResponseEntity responseEntity=new ResponseEntity(list,HttpStatus.OK);
+        System.out.println(responseEntity);
         return responseEntity;
     }
 }

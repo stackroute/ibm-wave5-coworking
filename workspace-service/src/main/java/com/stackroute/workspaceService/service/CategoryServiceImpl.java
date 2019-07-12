@@ -1,6 +1,6 @@
 package com.stackroute.workspaceService.service;
 
-import com.stackroute.workspaceService.domain.Category1;
+import com.stackroute.workspaceService.domain.MyCategory;
 import com.stackroute.workspaceService.exception.CategoryAlreadyExists;
 import com.stackroute.workspaceService.exception.CategoryNotFoundException;
 import com.stackroute.workspaceService.repository.CategoryRepository;
@@ -20,24 +20,24 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<Category1> getAllCategories() {
+    public List<MyCategory> getAllCategories() {
         return categoryRepository.findAll();
 
     }
 
     @Override
-    public Category1 saveCategory(Category1 category) throws CategoryAlreadyExists {
-        if (categoryRepository.existsByCategoryId(category.getCategoryId()))
+    public MyCategory saveCategory(MyCategory mycategory) throws CategoryAlreadyExists {
+        if (categoryRepository.existsByCategoryId(mycategory.getCategoryId()))
             throw new CategoryAlreadyExists("category Already Exists");
-        Category1 savedCategory = categoryRepository.save(category);
+        MyCategory savedCategory = categoryRepository.save(mycategory);
         return savedCategory;
     }
 
 
     @Override
-    public boolean deleteCategory(Category1 category) throws Exception {
-        if (categoryRepository.existsByCategoryId(category.getCategoryId())) {
-            categoryRepository.deleteByCategoryId(category.getCategoryId());
+    public boolean deleteCategory(MyCategory mycategory) throws Exception {
+        if (categoryRepository.existsByCategoryId(mycategory.getCategoryId())) {
+            categoryRepository.deleteByCategoryId(mycategory.getCategoryId());
             return true;
         } else {
             throw new Exception("Exception in delete Category");
@@ -46,13 +46,18 @@ public class CategoryServiceImpl implements CategoryService {
 
 
     @Override
-    public Category1 updateCategory(Category1 category) throws CategoryNotFoundException {
-        if (categoryRepository.existsByCategoryId(category.getCategoryId())) {
-            Category1 saveCategory = categoryRepository.save(category);
+    public MyCategory updateCategory(MyCategory mycategory) throws CategoryNotFoundException {
+        if (categoryRepository.existsByCategoryId(mycategory.getCategoryId())) {
+            MyCategory saveCategory = categoryRepository.save(mycategory);
             return saveCategory;
         } else {
             throw new CategoryNotFoundException("Category not found");
         }
+    }
+
+    @Override
+    public List<MyCategory> findByCategory(String categoryName) {
+        return categoryRepository.findByCategoryName(categoryName);
     }
 }
 

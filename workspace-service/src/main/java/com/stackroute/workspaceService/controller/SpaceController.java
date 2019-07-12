@@ -1,8 +1,7 @@
 package com.stackroute.workspaceService.controller;
 
-import com.stackroute.kafka.domain.Space;
+import com.stackroute.workspaceService.domain.MySpace;
 import com.stackroute.workspaceService.service.SpaceService;
-import com.stackroute.workspaceService.service.SpaceServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,14 +19,14 @@ public class SpaceController {
     }
 
     @PostMapping("savespace")
-    public ResponseEntity<?> saveSpace(@RequestBody Space space){
-        ResponseEntity responseEntity = new ResponseEntity<Space>(spaceService.saveSpace(space), HttpStatus.OK);
+    public ResponseEntity<?> saveSpace(@RequestBody MySpace myspace){
+        ResponseEntity responseEntity = new ResponseEntity<MySpace>(spaceService.saveSpace(myspace), HttpStatus.OK);
         return responseEntity;
     }
 
     @GetMapping("space/{name}")
     public ResponseEntity<?> getByName(@PathVariable String spaceName){
-        ResponseEntity responseEntity=new ResponseEntity<Space>(spaceService.findBySpaceName(spaceName), HttpStatus.OK);
+        ResponseEntity responseEntity=new ResponseEntity<MySpace>(spaceService.findBySpaceName(spaceName), HttpStatus.OK);
         return responseEntity;
     }
 }

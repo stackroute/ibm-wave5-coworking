@@ -1,5 +1,7 @@
 package com.stackroute.kafka.domain;
 
+import java.util.Arrays;
+
 public class Amenities {
 
     String[] amenities;
@@ -13,6 +15,13 @@ public class Amenities {
 
     public String[] getAmenities() {
         return amenities;
+    }
+
+    @Override
+    public String toString() {
+        return "Amenities{" +
+                "amenities=" + Arrays.toString(amenities) +
+                '}';
     }
 }
 

@@ -1,15 +1,17 @@
-package com.stackroute.kafka.domain;
+package com.stackroute.workspaceService.domain;
+
 
 import lombok.Data;
+
 @Data
-public class Dimension {
+public class MyDimension {
     int width;
     int height;
 
-    public Dimension() {
+    public MyDimension() {
     }
 
-    public Dimension(int width, int height) {
+    public MyDimension(int width, int height) {
         this.width = width;
         this.height = height;
     }
@@ -38,3 +40,4 @@ public class Dimension {
         this.height = height;
     }
 }
+

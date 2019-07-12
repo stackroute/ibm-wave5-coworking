@@ -2,17 +2,18 @@ package com.stackroute.workspaceService.service;
 
 import com.stackroute.workspaceService.exception.LocationAlreadyExists;
 import com.stackroute.workspaceService.exception.LocationNotFoundException;
-import com.stackroute.workspaceService.domain.Location;
+import com.stackroute.workspaceService.domain.MyLocation;
 
 import java.util.List;
 public interface LocationService {
-    List<Location> getLocation();
+    List<MyLocation> getLocation();
 
-    Location saveLocation(Location location) throws LocationAlreadyExists;
+    MyLocation saveLocation(MyLocation location) /*throws LocationAlreadyExists*/;
 
-    boolean deleteLocation(Location location) throws Exception;
+    boolean deleteLocation(MyLocation location) throws Exception;
 
-    Location updateLocation(Location location) throws LocationNotFoundException;
+    MyLocation updateLocation(MyLocation location) throws LocationNotFoundException;
+    public List<MyLocation> findByLocation(String locationName);
 }
 
 

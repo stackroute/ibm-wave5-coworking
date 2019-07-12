@@ -53,6 +53,7 @@ public class Category {
                 ", categoryName='" + categoryName + '\'' +
                 ", price=" + price +
                 ", additionalAmenities=" + Arrays.toString(additionalAmenities) +
+                ", dimension=" + dimension +
                 '}';
     }
 }
