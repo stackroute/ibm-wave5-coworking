@@ -167,7 +167,7 @@
                         <input matInput type="number" placeholder="Price" [(ngModel)]="price" formControlName="PriceCtrl" required>
                     </mat-form-field>
                     <br>
-                    <div id="mat">
+                    <!-- <div id="mat">
 
                         <mat-form-field>
 
@@ -179,7 +179,7 @@
                             <input matInput type="number" placeholder="Width" [(ngModel)]="Width" formControlName="WidthCtrl" required>
                             <mat-hint>Width of space in sq.m</mat-hint>
                         </mat-form-field>
-                    </div>
+                    </div> -->
                     <button type="button" mat-raised-button (click)="fileInput.click()">Upload Image</button>
                     <input hidden (change)="onFileSelected()" #fileInput type="file" id="file">
                     <div class="next">
@@ -349,7 +349,7 @@
                     <div class="amenity">
                         <button mat-raised-button matStepperPrevious color="primary">Back</button>
                         <!-- <button mat-raised-button color="primary" (click)="stepper.reset()">Reset</button> -->
-                        <button mat-raised-button matStepperNext color="primary" (click)="saveDetails(spaceId.value,spaceName.value,category.value,price.value,height.value,width.value,buildingnumber.value,area.value,city.value,state.value,country.value,pincode.value)">Submit</button><br><br>
+                        <button mat-raised-button matStepperNext color="primary" (click)="fireEvent()" >Submit</button><br><br>
                     </div>
                 </div>
             </form>

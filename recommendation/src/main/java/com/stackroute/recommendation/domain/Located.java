@@ -12,7 +12,7 @@ public class Located {
     private long id;
 
     @StartNode
-    private Category category;
+    private Space space;
     @EndNode
     private Location location;
 

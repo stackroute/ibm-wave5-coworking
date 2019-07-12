@@ -32,17 +32,6 @@ public class Category {
     public Category() {
     }
 
-    @Override
-    public String toString() {
-        return "Category{" +
-                "categoryId=" + categoryId +
-                ", categoryName='" + categoryName + '\'' +
-                ", price=" + price +
-                ", additionalAmenities=" + Arrays.toString(additionalAmenities) +
-                ", dimension=" + dimension +
-                '}';
-    }
-
     public Category(int categoryId, String categoryName, BigDecimal price, String[] additionalAmenities) {
         this.categoryId = categoryId;
         this.categoryName = categoryName;
@@ -66,4 +55,13 @@ public class Category {
         return additionalAmenities;
     }
 
+    @Override
+    public String toString() {
+        return "Category{" +
+                "categoryId=" + categoryId +
+                ", categoryName='" + categoryName + '\'' +
+                ", price=" + price +
+                ", additionalAmenities=" + Arrays.toString(additionalAmenities) +
+                '}';
+    }
 }

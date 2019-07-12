@@ -45,7 +45,7 @@ export class NavbarComponent implements OnInit {
           this.router.navigateByUrl('/client-login');
         }
        if(type == "owner") {
-          this.router.navigateByUrl('/owner-login');
+          this.router.navigateByUrl('/owner-login/'+name);
 
         }
         

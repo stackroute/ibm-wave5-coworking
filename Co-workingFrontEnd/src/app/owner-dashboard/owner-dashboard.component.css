@@ -248,3 +248,13 @@ body {
     background-size: cover;
     overflow-x: hidden;
 }
+.mb-2, .my-2 {
+    margin-bottom: 10.5rem!important;
+}
+@media (min-width: 576px){
+.col-sm-6 {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 100%;
+} 
+ }
