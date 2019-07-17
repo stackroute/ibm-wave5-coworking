@@ -2,7 +2,6 @@ package com.stackroute.workspaceService.configuration;
 
 import com.stackroute.kafka.domain.Consumer;
 import com.stackroute.kafka.domain.Space;
-import com.stackroute.workspaceService.service.SpaceService;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -67,11 +66,6 @@ public class ConsumerConfiguration {
         return factory;
     }
 
-//    @Bean
-//    public Consumer consum(CategoryService categoryService) {
-//
-//        return new Consumer(categoryService);
-//    }
 
 
     @Bean

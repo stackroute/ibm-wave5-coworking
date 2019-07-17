@@ -1,8 +1,7 @@
-package com.stackroute.loginservice.configuration;
+package com.stackroute.recommendation.configuration;
 
-import com.stackroute.Consumer;
-import com.stackroute.User;
-import com.stackroute.loginservice.service.UserService;
+import com.stackroute.kafka.domain.Consumer;
+import com.stackroute.kafka.domain.Space;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.beans.factory.annotation.Value;
@@ -22,10 +21,8 @@ import java.util.Map;
 @EnableKafka
 @Configuration
 public class ConsumerConfiguration {
-
-
     private static String BOOTSTRAP_SERVERS_CONFIG;
-    private static String KEY_DESERIALIZER_CLASS_CONFIG ;
+    private static String KEY_DESERIALIZER_CLASS_CONFIG;
     private static String VALUE_DESERIALIZER_CLASS_CONFIG;
     private static String GROUP_ID_CONFIG;
 
@@ -33,16 +30,18 @@ public class ConsumerConfiguration {
     private String bootstrapServers;
 
     @Bean
+
     public Map<String, Object> consumerConfigs() {
         JsonDeserializer<Object> deserializer = new JsonDeserializer<>(Object.class);
         deserializer.setRemoveTypeHeaders(false);
         deserializer.addTrustedPackages("*");
         deserializer.setUseTypeMapperForKey(true);
 
+
         Map<String, Object> props = new HashMap<>();
         // list of host:port pairs used for establishing the initial connections to the Kafka cluster
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG,
-                "localhost:9092");
+                bootstrapServers);
         props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG,
                 StringDeserializer.class);
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,
@@ -54,23 +53,29 @@ public class ConsumerConfiguration {
         return props;
     }
 
+
     @Bean
-    public ConsumerFactory<String, User> consumerFactory() {
-        return new DefaultKafkaConsumerFactory<>(consumerConfigs(),new StringDeserializer(),new JsonDeserializer<>(User.class));
+    public ConsumerFactory<String, Space> consumerFactory() {
+        return new DefaultKafkaConsumerFactory<String, Space>(consumerConfigs(), new StringDeserializer(), new JsonDeserializer<>(Space.class));
     }
 
     @Bean
-    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, User>> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, User> factory =
+    public KafkaListenerContainerFactory<ConcurrentMessageListenerContainer<String, Space>> kafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, Space> factory =
                 new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
-
         return factory;
     }
 
     @Bean
-    public Consumer consum(UserService userService) {
-        return new Consumer(userService);
-    }
-}
+    public Consumer consumespace() {
 
+        return new Consumer();
+    }
+
+    @Bean
+    public Space consum() {
+        return new Space();
+    }
+
+}

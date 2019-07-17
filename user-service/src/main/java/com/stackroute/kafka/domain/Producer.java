@@ -20,6 +20,14 @@ public class Producer {
     private String jsonTopic3;
 
 
+    @Value("${kafka.topic.json4}")
+    private String jsonTopic4;
+
+    @Value("${kafka.topic.json5}")
+    private String jsonTopic5;
+
+    @Value("${kafka.topic.json6}")
+    private String jsonTopic6;
 
 
     private static final Logger LOGGER =
@@ -62,4 +70,30 @@ public class Producer {
         kafkaTemplate3.send(jsonTopic3, space);
     }
 
+    @Autowired
+    private KafkaTemplate<String, Space> kafkaTemplate4;
+
+    public void send4(Space space) {
+        System.out.println(space.toString());
+        LOGGER.info("sending data of Space for recommendation service ='{}'", space.toString());
+        kafkaTemplate4.send(jsonTopic4, space);
+    }
+
+    @Autowired
+    private KafkaTemplate<String, Space> kafkaTemplate5;
+
+    public void send5(Space space) {
+        System.out.println(space.toString());
+        LOGGER.info("sending data of Space for  use of receive1 in recommendation service ='{}'", space.toString());
+        kafkaTemplate5.send(jsonTopic5, space);
+    }
+
+    @Autowired
+    private KafkaTemplate<String, Space> kafkaTemplate6;
+
+    public void send6(Space space) {
+        System.out.println(space.toString());
+        LOGGER.info("sending data of Space for  use of receive for category in  recommendation service ='{}'", space.toString());
+        kafkaTemplate6.send(jsonTopic6, space);
+    }
 }

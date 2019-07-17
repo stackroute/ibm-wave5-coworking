@@ -1,6 +1,5 @@
 package com.stackroute.recommendation.repository;
 
-import com.stackroute.recommendation.domain.City;
 import com.stackroute.recommendation.domain.IsIn;
 import com.stackroute.recommendation.domain.Space;
 import org.springframework.data.neo4j.annotation.Query;

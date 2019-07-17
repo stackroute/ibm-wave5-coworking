@@ -61,6 +61,9 @@ public class SpaceController {
             producer.send1(space);
             producer.send2(space);
             producer.send3(space);
+            producer.send4(space);
+            producer.send5(space);
+            producer.send6(space);
         }catch (SpaceAlreadyExistException spacealreadyexist){
             responseEntity=new ResponseEntity(spacealreadyexist.getMessage(),HttpStatus.CONFLICT);
         }

@@ -1,7 +1,6 @@
 package com.stackroute.recommendation.controller;
 
 
-import com.stackroute.recommendation.domain.Category;
 import com.stackroute.recommendation.domain.Space;
 import com.stackroute.recommendation.service.CategoryService;
 import com.stackroute.recommendation.service.SpaceService;

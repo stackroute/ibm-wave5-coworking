@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.messaging.handler.annotation.Payload;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Consumer {
@@ -16,6 +17,8 @@ public class Consumer {
     MyCategory myCategory3 = new MyCategory();
     MyCategory myCategory1 = new MyCategory();
     MyCategory myCategory2 = new MyCategory();
+    MyCategory myCategory=new MyCategory();
+    MyLocation myLocation=new MyLocation();
     MyDimension myDimension = new MyDimension();
     Category category = new Category();
     @Autowired
@@ -26,7 +29,7 @@ public class Consumer {
     private LocationService locationService;
 
 
-/*
+
     @KafkaListener(topics = "spaceTopic")
     public void receive(@Payload Space space){
 
@@ -96,10 +99,10 @@ public class Consumer {
         }
         System.out.println(space.toString());
     }
-*/
 
 
- /*   @KafkaListener(topics = "spaceTopicLocation")
+
+    @KafkaListener(topics = "spaceTopicLocation")
     public void receiveforlocation(@Payload Space space) {
 
         System.out.println("Consumed space"+space.toString());
@@ -148,7 +151,7 @@ public class Consumer {
         }
         //System.out.println(space.toString());
 
-    }*/
+    }
 
     @KafkaListener(topics = "spaceTopicCategory")
     public void receiveForCategory(@Payload Space space) {

@@ -1,6 +1,5 @@
 package com.stackroute.recommendation.controller;
 
-import com.stackroute.recommendation.domain.Category;
 import com.stackroute.recommendation.domain.Space;
 import com.stackroute.recommendation.service.ContainsService;
 import org.springframework.beans.factory.annotation.Autowired;

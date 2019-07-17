@@ -86,5 +86,36 @@ public class ProducerConfiguration {
         return new KafkaTemplate<String,Space>(producerFactory3());
     }
 
+    @Bean
+    public ProducerFactory<String, Space> producerFactory4() {
+        return new DefaultKafkaProducerFactory<String,Space>(producerConfigs());
+    }
 
+    @Bean
+    public KafkaTemplate<String, Space> kafkaTemplate4() {
+
+        return new KafkaTemplate<String,Space>(producerFactory4());
+    }
+
+    @Bean
+    public ProducerFactory<String, Space> producerFactory5() {
+        return new DefaultKafkaProducerFactory<String,Space>(producerConfigs());
+    }
+
+    @Bean
+    public KafkaTemplate<String, Space> kafkaTemplate5() {
+
+        return new KafkaTemplate<String,Space>(producerFactory5());
+    }
+
+    @Bean
+    public ProducerFactory<String, Space> producerFactory6() {
+        return new DefaultKafkaProducerFactory<String,Space>(producerConfigs());
+    }
+
+    @Bean
+    public KafkaTemplate<String, Space> kafkaTemplate6() {
+
+        return new KafkaTemplate<String,Space>(producerFactory6());
+    }
 }
