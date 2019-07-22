@@ -15,11 +15,9 @@ import java.util.List;
 @CrossOrigin("*")
 @RequestMapping(value="api/v1")
 public class SpaceController {
-
     SpaceServiceImpl spaceService;
 
-    @Autowired
-    Producer producer;
+
     public SpaceController(SpaceServiceImpl spaceService) {
         this.spaceService = spaceService;
     }
@@ -58,12 +56,7 @@ public class SpaceController {
             space.setAmenities(amenities);
 
             responseEntity = new ResponseEntity<Space>(spaceService.saveSpace(space), HttpStatus.OK);
-            producer.send1(space);
-            producer.send2(space);
-            producer.send3(space);
-            producer.send4(space);
-            producer.send5(space);
-            producer.send6(space);
+
         }catch (SpaceAlreadyExistException spacealreadyexist){
             responseEntity=new ResponseEntity(spacealreadyexist.getMessage(),HttpStatus.CONFLICT);
         }
@@ -101,9 +94,23 @@ public class SpaceController {
         return  responseEntity;
     }
 
-    @GetMapping("space/{name}")
-    public ResponseEntity<Space> getByName(@PathVariable String name){
-        ResponseEntity responseEntity=new ResponseEntity<Space>(spaceService.findByName(name),HttpStatus.OK);
+    @GetMapping("/{name}")
+    public ResponseEntity<?> getByUserName(@PathVariable String name){
+        ResponseEntity responseEntity=new ResponseEntity<List<Space>>(spaceService.findByName(name),HttpStatus.OK);
         return responseEntity;
     }
+
+    @GetMapping("space/spaces/{spaceName}")
+    public ResponseEntity<?> getBySpaceName(@PathVariable String spaceName){
+        System.out.println("space name is"+ spaceName);
+        Space space = spaceService.findBySpaceName(spaceName);
+        System.out.println("==================================");
+        System.out.println("space is"+space.toString());
+        ResponseEntity responseEntity=new ResponseEntity<Space>(space,HttpStatus.OK);
+
+        return responseEntity;
+
+
+    }
 }
+

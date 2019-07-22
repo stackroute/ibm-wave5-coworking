@@ -18,6 +18,8 @@ public class Space {
     @Property
     private String spaceName;
 
+    private String spaceImageUrl;
+
     @Relationship(type = "Contains",direction = Relationship.INCOMING)
     private List<Category> category;
 
@@ -28,10 +30,20 @@ public class Space {
     public Space() {
     }
 
-    public Space(long spaceId, String spaceName) {
+    public Space(long spaceId, String spaceName,String spaceImageUrl) {
         this.spaceId = spaceId;
         this.spaceName = spaceName;
+        this.spaceImageUrl=spaceImageUrl;
     }
+
+    public String getSpaceImageUrl() {
+        return spaceImageUrl;
+    }
+
+    public void setSpaceImageUrl(String spaceImageUrl) {
+        this.spaceImageUrl = spaceImageUrl;
+    }
+
     public long getSpaceId() {
         return spaceId;
     }
@@ -55,6 +67,7 @@ public class Space {
                 ", spaceName='" + spaceName + '\'' +
                 ", category=" + category +
                 ", locations=" + locations +
+                ", spaceImageUrl=" + spaceImageUrl +
                 '}';
     }
 

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping(value = "v1/api/space")
 public class SpaceController {
@@ -39,7 +39,7 @@ public class SpaceController {
     // To create new user
     @PostMapping("/newSpace")
     public Space save(@RequestBody Space space) {
-        Space space1 = spaceService.create(space.getSpaceId(),space.getSpaceName());
+        Space space1 = spaceService.create(space.getSpaceId(),space.getSpaceName(),space.getSpaceImageUrl());
         return space1;
     }
 

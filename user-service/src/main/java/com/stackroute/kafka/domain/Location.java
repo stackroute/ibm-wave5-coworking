@@ -11,6 +11,22 @@ public class Location {
     double longitude;
     int locationId;
 
+    public void setLocationName(String locationName) {
+        this.locationName = locationName;
+    }
+
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    public void setLocationId(int locationId) {
+        this.locationId = locationId;
+    }
+
     public Location() {
     }
 

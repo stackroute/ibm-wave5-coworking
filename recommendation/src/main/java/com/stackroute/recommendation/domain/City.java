@@ -14,13 +14,10 @@ public class City {
     }
 
     public City(long cityId, String cityName) {
-        this.cityId = cityId;
+        this.cityId=cityId;
         this.cityName = cityName;
     }
 
-    public long getCityId() {
-        return cityId;
-    }
 
     public String getCityName() {
         return cityName;
@@ -32,5 +29,9 @@ public class City {
                 "cityId=" + cityId +
                 ", cityName='" + cityName + '\'' +
                 '}';
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 }

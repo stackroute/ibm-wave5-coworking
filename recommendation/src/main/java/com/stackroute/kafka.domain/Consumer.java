@@ -1,6 +1,7 @@
 package com.stackroute.kafka.domain;
 
 import com.stackroute.recommendation.domain.Location;
+import com.stackroute.recommendation.repository.CityRepository;
 import com.stackroute.recommendation.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -13,6 +14,8 @@ public class Consumer {
     com.stackroute.recommendation.domain.Location loc = new Location();
     com.stackroute.recommendation.domain.Space sp = new com.stackroute.recommendation.domain.Space();
     com.stackroute.recommendation.domain.Category cat = new com.stackroute.recommendation.domain.Category();
+    com.stackroute.recommendation.domain.Booked booked=new com.stackroute.recommendation.domain.Booked();
+    com.stackroute.recommendation.domain.City city=new com.stackroute.recommendation.domain.City();
     @Autowired
     private LocationService locationService;
 
@@ -28,6 +31,17 @@ public class Consumer {
     @Autowired
     ContainsService containsService;
 
+    @Autowired
+    BookedService bookedService;
+
+    @Autowired
+    UserService userService;
+
+    @Autowired
+    CityRepository cityRepository;
+    @Autowired
+    IsInRelationshipService isInRelationshipService;
+
     @KafkaListener(topics = "spaceTopicForRecommendation")
     public void receive(@Payload Space space) {
         //  System.out.println("Consumed space for use of recommendation:" + space.toString());
@@ -40,7 +54,9 @@ public class Consumer {
         loc.setLocationId((location.getLocationId()));
         locationService.create(loc.getLocationId(), loc.getLocationName(), loc.getLatitude(), loc.getLatitude());
         System.out.println("Saved data of location" + loc.toString());
-
+        city.setCityName(space.getAddress().getCity());
+        cityRepository.createNode(city.getCityName());
+        isInRelationshipService.createrelationship(loc.getLocationName(),city.getCityName());
     }
 
 
@@ -53,11 +69,13 @@ public class Consumer {
         com.stackroute.kafka.domain.Space prodspace = new Space();
         prodspace.setSpaceId(space.getSpaceId());
         prodspace.setSpaceName(space.getSpaceName());
+        prodspace.setSpaceImageUrl(space.getSpaceImageUrl());
         prodspace.setCategory(space.getCategory());
         prodspace.setLocation(space.getLocation());
         sp.setSpaceId(prodspace.getSpaceId());
         sp.setSpaceName(prodspace.getSpaceName());
-        spaceService.create(sp.getSpaceId(), sp.getSpaceName());
+        sp.setSpaceImageUrl(prodspace.getSpaceImageUrl());
+        spaceService.create(sp.getSpaceId(), sp.getSpaceName(),sp.getSpaceImageUrl());
         System.out.println("Set values of space Id and space Name" + sp.toString());
         locatedService.createRelationship(sp.getSpaceName(), space.getLocation().getLocationName());
         containsService.createRelationship(sp.getSpaceId());
@@ -76,17 +94,36 @@ public class Consumer {
             Category category = list.get(i);
             cat.setCategoryId(category.getCategoryId());
             cat.setCategoryName(category.getCategoryName());
-            cat.setPrice(category.getPrice());
-
+           // cat.setPrice(category.getPrice());
+            System.out.println("ouweuewgeuwfuo"+category.getMonthlyPrice());
+            cat.setPrice(category.getMonthlyPrice());
+            System.out.println("consumed price"+cat.getPrice());
             sp.setSpaceId(space.getSpaceId());
             sp.setSpaceName(space.getSpaceName());
+            sp.setSpaceImageUrl(space.getSpaceImageUrl());
             cat.setSpace(sp);
 
-            categoryService.create(category.getCategoryId(), category.getCategoryName(), category.getPrice(), cat.getSpace());
+            categoryService.create(cat.getCategoryId(), cat.getCategoryName(), cat.getPrice(), cat.getSpace());
             System.out.println("Set values of category Id and category Name=" + cat.toString());
 
         }
     }
+
+
+    @KafkaListener(topics = "BookingTopic")
+    public void receive3(@Payload Booking booking) {
+        System.out.println("consumed booking"+booking.toString());
+        MyUser myuser=booking.getMyUser();
+        MySpace mySpace=myuser.getMyCategory().getMySpace();
+        System.out.println("=================="+myuser.getName());
+        System.out.println("++++++++++++++++++"+myuser.getMyCategory().getCategoryName());
+        System.out.println("_______________________________"+mySpace.spaceId);
+        userService.create(myuser.getUid(),myuser.getName(),myuser.getEmailId(),myuser.getUid());
+        bookedService.createRelationship(myuser.getName(),myuser.getMyCategory().getCategoryName(),mySpace.spaceId);
+
+
+    }
+
 }
 
 

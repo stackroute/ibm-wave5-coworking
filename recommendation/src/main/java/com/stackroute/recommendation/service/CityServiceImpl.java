@@ -23,7 +23,7 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
-    public City saveCity(long cityId,String cityName) {
-        return cityRepository.createNode(cityId,cityName);
+    public City saveCity(String cityName) {
+        return cityRepository.createNode(cityName);
     }
 }

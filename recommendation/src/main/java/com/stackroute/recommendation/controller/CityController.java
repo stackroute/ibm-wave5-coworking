@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping(value = "v1/api/city")
 public class CityController {
@@ -26,7 +26,7 @@ public class CityController {
 
     @PostMapping("/newCity")
     public City saveCity(@RequestBody City city){
-        return cityService.saveCity(city.getCityId(),city.getCityName());
+        return cityService.saveCity(city.getCityName());
 
     }
 }

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
-
+@CrossOrigin("*")
 @RestController
 @RequestMapping(value = "v1/api/IsIn")
 public class IsInRelationshipController {
@@ -30,10 +30,15 @@ public class IsInRelationshipController {
         return isInRelationshipService.createrelationship(locationName,cityName);
     }
 
+//
+//    @GetMapping("/recommendationLocCity")
+//    public Collection<Space> recommendationLoc() {
+//        return isInRelationshipService.getSpaceWithCity();
+//    }
 
-    @GetMapping("/recommendationLocCity")
-    public Collection<Space> recommendationLoc() {
-        return isInRelationshipService.getSpaceWithCity();
+    @GetMapping("/recommendationLocCity/{cityName}")
+    public Collection<Space> recommendationLoc(@PathVariable String cityName) {
+        return isInRelationshipService.getSpaceWithCity(cityName);
     }
 
 }

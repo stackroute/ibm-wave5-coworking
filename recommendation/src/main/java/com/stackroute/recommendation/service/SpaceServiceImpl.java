@@ -28,8 +28,8 @@ public class SpaceServiceImpl implements SpaceService {
     }
 
     @Override
-    public Space create(long spaceId, String spaceName) {
-        return spaceRepository.createNode(spaceId,spaceName);
+    public Space create(long spaceId, String spaceName,String spaceImageUrl) {
+        return spaceRepository.createNode(spaceId,spaceName,spaceImageUrl);
     }
 
     @Override

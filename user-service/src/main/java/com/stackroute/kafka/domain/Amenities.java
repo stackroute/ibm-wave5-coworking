@@ -1,19 +1,16 @@
 package com.stackroute.kafka.domain;
 
+import lombok.Data;
+
 import java.util.Arrays;
 
+@Data
 public class Amenities {
 
     String[] amenities;
 
     public Amenities() {
-    }
-
-    @Override
-    public String toString() {
-        return "Amenities{" +
-                "amenities=" + Arrays.toString(amenities) +
-                '}';
+        super();
     }
 
     public Amenities(String[] amenities) {
@@ -22,5 +19,16 @@ public class Amenities {
 
     public String[] getAmenities() {
         return amenities;
+    }
+
+    public void setAmenities(String[] amenities) {
+        this.amenities = amenities;
+    }
+
+    @Override
+    public String toString() {
+        return "Amenities{" +
+                "amenities=" + Arrays.toString(amenities) +
+                '}';
     }
 }

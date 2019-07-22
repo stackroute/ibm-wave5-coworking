@@ -8,6 +8,6 @@ public interface CityService {
 
     public Collection<City> getall();
 
-    public City saveCity(long cityId,String cityName);
+    public City saveCity(String cityName);
 
 }

@@ -1,5 +1,6 @@
 package com.stackroute.userservice.service;
 
+import com.stackroute.kafka.domain.Producer;
 import com.stackroute.kafka.domain.Space;
 import com.stackroute.userservice.exception.SpaceAlreadyExistException;
 import com.stackroute.userservice.exception.SpaceNotFound;
@@ -18,11 +19,21 @@ public class SpaceServiceImpl implements SpaceService {
         this.spaceRepository = spaceRepository;
     }
 
+    @Autowired
+    Producer producer;
     @Override
     public Space saveSpace(Space space) throws SpaceAlreadyExistException {
         if(spaceRepository.existsById(space.getSpaceId())){
             throw new SpaceAlreadyExistException("Space Already Exist Exception");
 
+        }
+        else {
+            producer.send1(space);
+            producer.send2(space);
+            producer.send3(space);
+            producer.send4(space);
+            producer.send5(space);
+            producer.send6(space);
         }
         return spaceRepository.save(space);
     }
@@ -49,10 +60,21 @@ public class SpaceServiceImpl implements SpaceService {
         throw new SpaceNotFound("Track not Found exception occured");
 
     }
+//    @Override
+//    public Space findByName(String name)  {
+//
+//        return spaceRepository.findByName(name);
+//    }
+
     @Override
-    public Space findByName(String name)  {
+    public List<Space> findByName(String name)  {
 
         return spaceRepository.findByName(name);
+    }
+    @Override
+    public Space findBySpaceName(String spaceName)  {
+
+        return spaceRepository.findBySpaceName(spaceName);
     }
 
 
