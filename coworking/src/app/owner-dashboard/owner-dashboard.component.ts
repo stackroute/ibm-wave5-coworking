@@ -23,7 +23,7 @@ export class OwnerDashboardComponent implements OnInit {
   ngOnInit(){
   
       const ownerdata = this.route.snapshot.paramMap.get('name');
-     
+      console.log(ownerdata);
         
       this.ownerService.searchByName(ownerdata).subscribe(data => {
        

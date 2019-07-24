@@ -28,6 +28,7 @@ export class CardComponent implements OnInit {
 
   location1: string;
   spaceName:any;
+  username:any;
   ngOnInit() {
     
     // getting location name
@@ -40,12 +41,20 @@ export class CardComponent implements OnInit {
     // this.location=this.locationService.location;
     this.cardService.getByCategory(category).subscribe(data => {
     this.arrayOfCategory = data;
+    console.log(this.arrayOfCategory)
     
     });
   }
   click(spaceName){
      sessionStorage.setItem("spaceName",spaceName);
       console.log(spaceName);
+      this.username=sessionStorage.getItem('username');
+      console.log(this.username)
+      if(this.username!=null)
+      {
      this.router.navigateByUrl("details/"+spaceName);
+      }
+      else
+      this.router.navigateByUrl("detail/"+spaceName);
   }
 }

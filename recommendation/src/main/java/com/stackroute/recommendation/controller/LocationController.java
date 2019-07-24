@@ -2,6 +2,7 @@ package com.stackroute.recommendation.controller;
 
 
 import com.stackroute.recommendation.domain.Location;
+import com.stackroute.recommendation.exception.AlreadyExistException;
 import com.stackroute.recommendation.service.LocationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -34,7 +35,15 @@ public class LocationController {
     // To create new user
     @PostMapping("/newLocation")
     public Location save(@RequestBody Location location) {
-        Location location1 = locationService.create(location.getLocationId(), location.getLocationName(), location.getLatitude(), location.getLongitude());
+        System.out.println("idwufcxgwcdifcwi"+location.toString());
+        Location location1=new Location();
+        try {
+            location1 = locationService.create(location.getLocationId(), location.getLocationName(), location.getLatitude(), location.getLongitude());
+            return location1;
+        }catch (AlreadyExistException a){
+            a.getMessage();
+        }
+
         return location1;
     }
 

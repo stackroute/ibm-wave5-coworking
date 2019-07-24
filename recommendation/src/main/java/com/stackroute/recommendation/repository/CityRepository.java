@@ -13,4 +13,7 @@ public interface CityRepository extends Neo4jRepository<City,Long> {
 
     @Query("CREATE (u:City) SET u.cityName={cityName}")
     public City createNode(String cityName);
+
+    @Query("MATCH (n:City) WHERE n.cityName={cityName} RETURN n")
+    public City existByName(String cityName);
 }

@@ -43,6 +43,7 @@ getToken(obj): any {
 }
 
 getDataByName(username):any{
+  console.log(username)
   console.log("In get Data by name service ");
   return this.http.get(`http://13.235.110.75:8090/api/v1/user/${username}`);
 }

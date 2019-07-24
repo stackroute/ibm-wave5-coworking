@@ -10,30 +10,9 @@ import java.util.Date;
 @Data
 public class Booking {
 
-    @Id
-    private int bookingId;
     private MyUser myUser;
     Date startDate;
     Date endDate;
-
-    public Booking() {
-    }
-
-    public Booking(int bookingId, boolean status, MyUser myUser, Date startDate, Date endDate) {
-        this.bookingId = bookingId;
-        this.myUser = myUser;
-        this.startDate = startDate;
-        this.endDate = endDate;
-    }
-
-
-    public int getBookingId() {
-        return bookingId;
-    }
-
-    public void setBookingId(int bookingId) {
-        this.bookingId = bookingId;
-    }
 
     public MyUser getMyUser() {
         return myUser;
@@ -41,14 +20,6 @@ public class Booking {
 
     public void setMyUser(MyUser myUser) {
         this.myUser = myUser;
-    }
-
-    @Override
-    public String toString() {
-        return "Booking{" +
-                "bookingId=" + bookingId +
-                ", myUser=" + myUser +
-                '}';
     }
 
     public Date getStartDate() {
@@ -65,5 +36,15 @@ public class Booking {
 
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
+    }
+
+    public Booking(MyUser myUser, Date startDate, Date endDate) {
+        this.myUser = myUser;
+        this.startDate = startDate;
+        this.endDate = endDate;
+    }
+
+    public Booking() {
+        super();
     }
 }

@@ -45,7 +45,7 @@ public class LocatedServiceImpl implements LocatedService {
     }
 
     @Override
-    public Collection<Space> createRecommendationLoc() {
-        return locatedRepository.createRecommendationloc();
+    public Collection<Space> createRecommendationLoc(String name) {
+        return locatedRepository.createRecommendationloc(name);
     }
 }

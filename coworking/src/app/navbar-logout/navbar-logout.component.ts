@@ -13,6 +13,7 @@ export class NavbarLogoutComponent implements OnInit {
   ngOnInit() {
   }
 logout(){
-  this.router.navigateByUrl("/")
+  sessionStorage.removeItem('username');
+  this.router.navigateByUrl("/");
 }
 }

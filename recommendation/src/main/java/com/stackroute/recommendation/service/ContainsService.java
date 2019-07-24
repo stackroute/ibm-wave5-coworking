@@ -12,5 +12,5 @@ public interface ContainsService {
     public Space createRelationship(long spaceId);
     public Space createRelationshipAll();
     public Space deleteRelationship();
-    public Collection<Space> recommendationprice();
+    public Collection<Space> recommendationprice(String name);
 }

@@ -20,7 +20,7 @@ export class OwnerDashboardService {
 
    searchByName(value):Observable<any>{
      console.log(value);
-     return this.httpClient.get<any>(`http://13.235.110.75:8090/api/v1/${value}`)
+     return this.httpClient.get<any>(`http://13.235.110.75:8090/api/v1/user/${value}`)
    }
 
    deleteSpace(value):Observable<any>{

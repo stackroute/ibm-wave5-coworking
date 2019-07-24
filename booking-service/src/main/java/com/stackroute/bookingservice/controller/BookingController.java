@@ -44,6 +44,7 @@ public class BookingController {
             bookingService.bookedSpace(booking);
             responseEntity = new ResponseEntity<Booking>( booking , HttpStatus.CREATED);
             producer.send(booking);
+            producer.send1(booking);
         } catch (SpaceAlreadyBooked ex) {
             responseEntity = new ResponseEntity<String>(ex.getMessage(), HttpStatus.CONFLICT);
 
@@ -59,25 +60,25 @@ public class BookingController {
 
 
 
-    @DeleteMapping("book/{bookingId}")
-    public ResponseEntity<?> deleteBookedSpace(@PathVariable("bookingId") int bookingId) throws BookedSpaceNotFound {
-        {
-            ResponseEntity responseEntity;
-            try {
-                bookingService.deleteBookedSpace(bookingId);
-                responseEntity = new ResponseEntity<String>("Deleted Booked Space successfully", HttpStatus.OK);
-            } catch (BookedSpaceNotFound exception) {
-                responseEntity = new ResponseEntity<String>(exception.getMessage(), HttpStatus.CONFLICT);
-            }
-            return responseEntity;
-        }
-
-    }
+//    @DeleteMapping("book/{bookingId}")
+//    public ResponseEntity<?> deleteBookedSpace(@PathVariable("bookingId") int bookingId) throws BookedSpaceNotFound {
+//        {
+//            ResponseEntity responseEntity;
+//            try {
+//
+//                responseEntity = new ResponseEntity<String>("Deleted Booked Space successfully", HttpStatus.OK);
+//            } catch (BookedSpaceNotFound exception) {
+//                responseEntity = new ResponseEntity<String>(exception.getMessage(), HttpStatus.CONFLICT);
+//            }
+//            return responseEntity;
+//        }
+//
+//    }
 
     @GetMapping("books/{name}")
-    public ResponseEntity<Booking> getByName(@PathVariable String name){
+    public ResponseEntity <List<Booking>> getByName(@PathVariable String name){
         System.out.println("dsfddsgdhjm");
-        ResponseEntity responseEntity=new ResponseEntity<Booking>(bookingService.findByName(name), HttpStatus.OK);
+        ResponseEntity responseEntity=new ResponseEntity<List<Booking>>(bookingService.findByName(name), HttpStatus.OK);
         return responseEntity;
     }
 

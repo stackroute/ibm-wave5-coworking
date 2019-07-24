@@ -20,4 +20,9 @@ export class LocationService {
   getCategoryByLocation(location):any{
     return this.httpClient.get(`http://13.235.110.75:8005/api/v1/location/${location}`)
   }
+
+  getSpaceBySpaceName():any{
+    return this.httpClient.get("http://13.235.110.75:8006/v1/api/space/SafeWork11");
+  }
+
 }

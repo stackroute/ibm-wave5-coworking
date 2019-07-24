@@ -22,7 +22,6 @@ MyCategory myCategory=new MyCategory();
         myBookings.setCategoryName(booking.getMyUser().getMyCategory().getCategoryName());
         myBookings.setLocationName(booking.getMyUser().getMyCategory().getMyLocation().getLocationName());
         myBookings.setPrice(booking.getMyUser().getMyCategory().getPrice());
-        myBookings.setBookingId(booking.getBookingId());
         myBookings.setStartDate(booking.getStartDate());
         myBookings.setEndDate(booking.getEndDate());
         myBookings.setCategoryStatus("Booked");

@@ -47,9 +47,9 @@ public class ContainsController {
     }
 
     //Recommendation based on price
-    @GetMapping("/priceRecommendation")
-        public Collection<Space> recommondtionPrice() {
-            return containsService.recommendationprice();
+    @GetMapping("/priceRecommendation/{name}")
+        public Collection<Space> recommondtionPrice(@PathVariable String name) {
+            return containsService.recommendationprice(name);
         }
     }
 

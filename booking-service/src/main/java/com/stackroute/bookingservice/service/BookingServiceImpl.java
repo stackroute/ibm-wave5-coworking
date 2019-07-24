@@ -28,29 +28,26 @@ public class BookingServiceImpl implements BookingService{
 
     @Override
     public Booking bookedSpace(Booking booking) throws SpaceAlreadyBooked {
-        if (bookingRepository.existsByBookingId(booking.getBookingId())) {
-            throw new SpaceAlreadyBooked("space already booked ");
-        }
         Booking bookedSpace = bookingRepository.save(booking);
         return bookedSpace;
     }
 
-    @Override
-    public boolean deleteBookedSpace(int bookingId) throws BookedSpaceNotFound {
-        boolean status = false;
-        System.out.println("***********bookingidddd" + bookingId);
-        if (bookingRepository.existsByBookingId(bookingId)) {
-            bookingRepository.deleteByBookingId(bookingId);
-            status = true;
-            return status;
-        } else {
-            throw new BookedSpaceNotFound("Booked Space Not exists");
-        }
+//    @Override
+//    public boolean deleteBookedSpace(int bookingId) throws BookedSpaceNotFound {
+//        boolean status = false;
+//        System.out.println("***********bookingidddd" + bookingId);
+//        if (bookingRepository.existsByBookingId(bookingId)) {
+//            bookingRepository.deleteByBookingId(bookingId);
+//            status = true;
+//            return status;
+//        } else {
+//            throw new BookedSpaceNotFound("Booked Space Not exists");
+//        }
+//
+//    }
 
-    }
-
     @Override
-    public Booking findByName(String name) {
+    public List<Booking> findByName(String name) {
         return bookingRepository.findByName(name);
     }
 

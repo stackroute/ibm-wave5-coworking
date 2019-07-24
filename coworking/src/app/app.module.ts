@@ -36,6 +36,7 @@ import { SpacesComponent } from './spaces/spaces.component';
 import { EditComponent } from './edit/edit.component';
 import { BookModalComponent } from './book-modal/book-modal.component';
 import { NavbarLogoutComponent } from './navbar-logout/navbar-logout.component';
+import { ClientBookingComponent } from './client-booking/client-booking.component';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import { NavbarLogoutComponent } from './navbar-logout/navbar-logout.component';
     EditComponent,
     BookModalComponent,
     NavbarLogoutComponent,
+    ClientBookingComponent,
     
 
   ],

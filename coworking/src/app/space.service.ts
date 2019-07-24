@@ -28,20 +28,26 @@ export class SpaceService {
   saveBookingDetails(bookInfo): Observable<any> {
     console.log(bookInfo,"In Booking service");
     console.log(bookInfo.myCategory,"Displaying Categoryyyyyyyyy");
-    console.log(bookInfo.myCategory[0],"pppppppppppppppppppp");
+    // console.log(bookInfo.myCategory[0],"pppppppppppppppppppp");
 
     this.username=sessionStorage.getItem('username');
+    this.userid=sessionStorage.getItem('uid')
     this.myVar1=JSON.parse(sessionStorage.getItem('startDate'));
     this.myVar2=JSON.parse(sessionStorage.getItem('endDate'));
     
+    // if(this.username==null){
+      
+    // }
+
     this.userService.getDataByName(this.username).subscribe(data=>{
 
       this.arrayOfData=data;
       console.log(this.arrayOfData);
+      
 
     })
 
-
+    console.log(bookInfo.price);
     let bookingDetails = {
       startDate: this.myVar1,
       endDate: this.myVar2,
@@ -49,8 +55,8 @@ export class SpaceService {
        uid:this.userid,
        name:this.username,
         myCategory: {
-          categoryId: bookInfo.myCategory[0].categoryId,
-          categoryName : bookInfo.myCategory[0].categoryName,
+          categoryId: bookInfo.myCategory.categoryId,
+          categoryName : bookInfo.myCategory.categoryName,
           myLocation: {
               locationName: bookInfo.locationName,
           },
@@ -58,15 +64,14 @@ export class SpaceService {
             spaceId: bookInfo.spaceId,
             spaceName: bookInfo.spaceName,
             totalprice: bookInfo.price,
-          }
+          }     
         }
      }
     }
 
 
-     console.log(bookingDetails, "EEEEEEEEEEEEEEEEEEEEEEEEEEE")
+    console.log(bookingDetails)
      return this.httpClient.post('http://13.235.110.75:8091/api/v1/book',bookingDetails);
-
     }
 
 }

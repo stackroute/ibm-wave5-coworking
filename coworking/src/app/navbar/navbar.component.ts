@@ -19,7 +19,8 @@ export class NavbarComponent implements OnInit {
   constructor(private userService:UserService, private route: ActivatedRoute, private router:Router,private modal:NgbModal) { }
   arrayOfUser:any[];
   ngOnInit() {
-    
+    // sessionStorage.removeItem('username');
+    console.log(sessionStorage.getItem('username'));
   }
 
   authenticateUser(name,password)
@@ -53,6 +54,7 @@ export class NavbarComponent implements OnInit {
         sessionStorage.setItem('username',userdata.name)
         let username=sessionStorage.getItem('username');
         this.getData();
+        console.log("printing session storage of username" +username)
     });
   }
 
@@ -60,7 +62,7 @@ export class NavbarComponent implements OnInit {
    
    
     let userName=sessionStorage.getItem('username')
-
+    console.log(userName);
     this.userService.getDataByName(userName).subscribe(data=>{
       this.userDetail=data;
       console.log(this.userDetail)

@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="card" *ngFor="let data of arrayOfSpace">
                    
-                    <img class="card-img-top" src="/assets/images/hotdesk.jpg" alt="Card image">
+                    <img class="card-img-top" src="{{data.spaceImageUrl}}" alt="Card image">
                     <h5 class="card-title"><b>&nbsp;Space Name</b>:{{data.spaceName}}</h5>
                     <h5 class="card-title"><b>&nbsp;Location</b>:{{loc}}</h5>
                     <div class="button">
@@ -33,5 +33,9 @@
 
         </div>
     </div>
-</body>
+
+    
+  </body>
+
 <app-footer></app-footer>
+

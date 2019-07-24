@@ -8,8 +8,6 @@ import java.util.Date;
 @Data
 public class Booking {
 
-    @Id
-    private int bookingId;
     private boolean status;
     private MyUser myUser;
     Date startDate;
@@ -18,22 +16,13 @@ public class Booking {
     public Booking() {
     }
 
-    public Booking(int bookingId, boolean status, MyUser myUser, Date startDate, Date endDate) {
-        this.bookingId = bookingId;
+    public Booking(boolean status, MyUser myUser, Date startDate, Date endDate) {
         this.status = status;
         this.myUser = myUser;
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
-
-    public int getBookingId() {
-        return bookingId;
-    }
-
-    public void setBookingId(int bookingId) {
-        this.bookingId = bookingId;
-    }
 
     public boolean isStatus() {
         return status;
@@ -71,7 +60,6 @@ public class Booking {
     @Override
     public String toString() {
         return "Booking{" +
-                "bookingId=" + bookingId +
                 ", status=" + status +
                 ", myUser=" + myUser +
                 ", startDate=" + startDate +

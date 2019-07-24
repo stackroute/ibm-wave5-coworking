@@ -36,8 +36,9 @@ export class AddPropertiesComponent implements OnInit {
       this.firstFormGroup = this._formBuilder.group({
          IdCtrl: ['', Validators.required],
         NameCtrl: ['', Validators.required],
-        HeightCtrl: ['', Validators.required],
-        WidthCtrl: ['', Validators.required]
+        LengthCtrl: ['', Validators.required],
+        BreadthCtrl: ['', Validators.required],
+        spaceImageUrlCtrl: ['', Validators.required]
  
      
  
@@ -45,6 +46,7 @@ export class AddPropertiesComponent implements OnInit {
  
  
       this.categoryFormGroup = this._formBuilder.group({
+      CategoryidCtrl: ['', Validators.required],
        HourCtrl: ['', Validators.required],
        DailyCtrl: ['', Validators.required],
        MonthlyCtrl: ['', Validators.required],
@@ -78,6 +80,7 @@ export class AddPropertiesComponent implements OnInit {
    }
    addToSpaces(type) {
      let space = {
+           categoryId:this.categoryFormGroup.controls.CategoryidCtrl.value,
            categoryName: type,
            capacity:this.categoryFormGroup.controls. CapacityCtrl.value,
            hourlyPrice: this.categoryFormGroup.controls.HourCtrl.value,

@@ -15,6 +15,7 @@ export class ClientDashboardComponent implements OnInit {
   userName:string
   contactNumber:any;
   emailId:any;
+  address:any;
   i:any;
   
   constructor(private clientDashboardService:ClientDashboardService ,private http:HttpClient,private router:Router) {
@@ -24,6 +25,8 @@ export class ClientDashboardComponent implements OnInit {
     console.log(this.contactNumber)
     this.emailId=sessionStorage.getItem('emailId');
     console.log(this.emailId)
+    ,this.address=sessionStorage.getItem('address');
+
 
 
    }
@@ -37,6 +40,7 @@ export class ClientDashboardComponent implements OnInit {
 
     this.clientDashboardService.getSpaceDetailsByUserName(this.userName).subscribe(data=>
       {
+        console.log("In client Dashboard")
         console.log(data);
         this.ArrayOfClientSpace=data;
        
@@ -50,7 +54,10 @@ export class ClientDashboardComponent implements OnInit {
     this.router.navigateByUrl("/edit");
   }
 
- 
+  backToProfile():any{
+    console.log(this.userName)
+    this.router.navigateByUrl('/client-login/'+this.userName)
+  }
 
 
 

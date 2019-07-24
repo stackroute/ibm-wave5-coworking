@@ -42,7 +42,7 @@ public class ProducerConfiguration {
     @Bean
     public KafkaTemplate<String, Booking> kafkaTemplate() {
 
-        return new KafkaTemplate<String,Booking>(producerFactory());
+        return new KafkaTemplate<String, Booking>(producerFactory());
     }
 
     @Bean
@@ -54,5 +54,19 @@ public class ProducerConfiguration {
     public Booking booking() {
         return new Booking();
     }
+
+
+    @Bean
+    public ProducerFactory<String, Booking> producerFactory1() {
+        return new DefaultKafkaProducerFactory<String, Booking>(producerConfigs());
+    }
+
+    @Bean
+    public KafkaTemplate<String, Booking> kafkaTemplate1() {
+
+        return new KafkaTemplate<String, Booking>(producerFactory1());
+    }
+
 }
+
 

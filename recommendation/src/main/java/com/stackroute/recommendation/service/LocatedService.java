@@ -14,6 +14,6 @@ public interface LocatedService {
     public Category createRelationshipLoc(String categoryName, String locationName);
     public Category deleteRelationshipcat();
     public Space deleteRelationship();
-    public Collection<Space> createRecommendationLoc();
+    public Collection<Space> createRecommendationLoc(String name);
 
 }

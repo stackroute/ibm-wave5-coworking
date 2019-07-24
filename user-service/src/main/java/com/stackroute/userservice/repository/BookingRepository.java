@@ -6,6 +6,6 @@ import org.springframework.data.mongodb.repository.Query;
 import java.util.List;
 
 public interface BookingRepository extends MongoRepository<MyBookings, Integer> {
-    @Query("{ 'myUser.name': '?0' }")
+    @Query("{ 'name': '?0' }")
     List<MyBookings> findByName(String name);
 }

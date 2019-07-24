@@ -30,7 +30,7 @@ public interface LocatedRepository extends Neo4jRepository<Space,Long> {
     @Query("MATCH (c:Category)<-[:Contains]-(m:Space) RETURN c.categoryName")
     public ArrayList<String> getAllCategoryName();
 
-    @Query("MATCH (User)-[b:Booked]->(c:Category)-[:Contains]-(m:Space)-[:Located]->(n:Location)<-[:Located]-(s:Space)-[contains]-(l:Category) WHERE c.categoryName=l.categoryName and s.spaceId<>c.space RETURN s,l")
-    public Collection<Space> createRecommendationloc();
+    @Query("MATCH (u:User)-[b:Booked]->(c:Category)-[:Contains]-(m:Space)-[:Located]->(n:Location)<-[:Located]-(s:Space)-[contains]-(l:Category) WHERE u.name={name} and c.categoryName=l.categoryName and s.spaceId<>c.space RETURN s,l")
+    public Collection<Space> createRecommendationloc(String name);
 
 }

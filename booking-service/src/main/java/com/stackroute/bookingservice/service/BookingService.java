@@ -10,6 +10,6 @@ public interface BookingService {
 
     public List<Booking> getAllBookedSpace();
     public Booking bookedSpace(Booking booking) throws SpaceAlreadyBooked;
-    public boolean deleteBookedSpace(int bookingId) throws BookedSpaceNotFound;
-    public Booking findByName(String name);
+   // public boolean deleteBookedSpace(int bookingId) throws BookedSpaceNotFound;
+    public List<Booking> findByName(String name);
 }

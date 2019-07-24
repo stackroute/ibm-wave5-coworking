@@ -1,6 +1,7 @@
 package com.stackroute.recommendation.service;
 
 import com.stackroute.recommendation.domain.Location;
+import com.stackroute.recommendation.exception.AlreadyExistException;
 import com.stackroute.recommendation.repository.LocationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +29,12 @@ public class LocationServiceImpl implements LocationService {
     }
 
     @Override
-    public Location create(long locationId, String locationName, double latitude, double longitude) {
+    public Location create(long locationId, String locationName, double latitude, double longitude)throws AlreadyExistException {
+//        System.out.println("================"+locationRepository.existByName(locationName).toString());
+        if(locationRepository.existByName(locationName)!=null){
+            throw new AlreadyExistException("Location already Exist");
+        }
+
         return locationRepository.createNode(locationId,locationName,latitude,longitude);
     }
 

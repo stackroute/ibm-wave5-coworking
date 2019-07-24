@@ -54,9 +54,9 @@ public class LocatedController {
     }
 
     //To get recommondation
-    @GetMapping("/recommendationLoc")
-    public Collection<Space> recommendationLoc() {
-        return locatedService.createRecommendationLoc();
+    @GetMapping("/recommendationLoc/{name}")
+    public Collection<Space> recommendationLoc(@PathVariable String name) {
+        return locatedService.createRecommendationLoc(name);
     }
 
 

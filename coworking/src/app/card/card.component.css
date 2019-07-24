@@ -1,5 +1,3 @@
-
-
 #heading {
     padding-top: 40px;
     margin-left: 25px;
@@ -10,7 +8,7 @@ body {
 }
 
 .container {
-    padding-top: 60px;
+    margin-top: 150px;
 }
 
 .column {
@@ -20,7 +18,7 @@ body {
 }
 
 .row {
-    margin-top: -80px;
+    margin-top: -10px;
     float: left;
 
 }
@@ -48,8 +46,8 @@ body {
     /* this adds the "card" effect */
     margin: left;
     text-align: left;
-    widows: 620px;
-    height: 400px;
+    widows: 720px;
+    height: 430px;
     max-width: 300px;
     color: rgb(17, 17, 17);
     background-color: #fff;
